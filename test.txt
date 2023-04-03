@@ -1,10 +1,8 @@
-pol eng
-pol1 eng1
-pol2 eng2
-pol5 eng5
-pol6 eng6
-polskie angielskie
-<<<<<<< HEAD
-=======
-jabłko apple
->>>>>>> b09d05d163560f6d626f44bf70145047d9317c5f
+Modelowanie dziedziny dla WordMemorise
+1. Trzeba naprawić interfejs
+2. Wyjątki przy wpisywaniu nazwy pliku
+3. Memory coś takiego wyświetla nam się słówko i wpisujemy tłumaczenie
+4. Losowanie słówek, fiszki
+
+
+
