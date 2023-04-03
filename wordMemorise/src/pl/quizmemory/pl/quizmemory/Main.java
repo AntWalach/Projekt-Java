@@ -36,7 +36,6 @@ public class Main {
                 case 4 -> System.out.println("You picked number 3");
                 case 5 -> shouldContinue = false;
 
-
             }
         }
     }
