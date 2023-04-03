@@ -1,0 +1,8 @@
+Modelowanie dziedziny dla WordMemorise
+1. Trzeba naprawić interfejs
+2. Wyjątki przy wpisywaniu nazwy pliku
+3. Memory coś takiego wyświetla nam się słówko i wpisujemy tłumaczenie
+4. Losowanie słówek, fiszki
+
+
+
