@@ -1,0 +1,6 @@
+pol eng
+pol1 eng1
+pol2 eng2
+pol5 eng5
+pol6 eng6
+polskie angielskie
