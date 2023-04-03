@@ -23,8 +23,6 @@ public class CreateFile {
             System.out.println("An error occurred.");
             throw new RuntimeException(e);
         }
-
-
     }
 
     @SuppressWarnings("resource")
