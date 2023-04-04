@@ -14,6 +14,7 @@ public class WordList {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Type file name: ");
         String fileName = scanner.next();
+        fileName = CreateFile.checkFileName(fileName);
 
         Scanner read = new Scanner(new FileReader(fileName));
 
