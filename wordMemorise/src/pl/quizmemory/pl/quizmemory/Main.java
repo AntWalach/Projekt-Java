@@ -3,6 +3,7 @@ package pl.quizmemory;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class Main {
 
 
@@ -14,19 +15,22 @@ public class Main {
         while (shouldContinue) {
             System.out.println("");
             System.out.println("Welcome in the Word Memory program");
-            System.out.println("Pick what you wanna do: ");
+            System.out.println("Pick what you want to do: ");
 
             System.out.println("1. Create new file");
-            System.out.println("1. Check input file");
+            System.out.println("2. Check input file");
             System.out.println("3. Add content to a file");
             System.out.println("4. ----------");
             System.out.println("5. Quit");
 
+            System.out.print("Type option: ");
             int userChoice = scanner.nextInt();
 
 
             WordList wordList = new WordList();
             CreateFile file = new CreateFile();
+
+
 
             switch (userChoice) {
 
@@ -35,7 +39,7 @@ public class Main {
                 case 3 -> CreateFile.addContent();
                 case 4 -> System.out.println("You picked number 3");
                 case 5 -> shouldContinue = false;
-
+                default -> System.out.println("The picked option doesn't exist.");
             }
         }
     }

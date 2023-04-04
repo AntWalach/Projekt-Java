@@ -25,11 +25,20 @@ public class CreateFile {
         }
     }
 
+    public static String checkFileName(String name) throws IOException {
+        if(!name.contains(".txt")) {
+            name += ".txt";
+        }
+
+        return name;
+    }
+
     @SuppressWarnings("resource")
     public static void addContent() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type file name: ");
         String fileName = scanner.next();
+        fileName = checkFileName(fileName);
 
 
 

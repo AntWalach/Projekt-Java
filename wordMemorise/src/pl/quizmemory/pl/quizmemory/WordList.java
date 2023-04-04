@@ -12,6 +12,7 @@ public class WordList {
 
         List<String> wordList = new ArrayList<String>();
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Type file name: ");
         String fileName = scanner.next();
 
         Scanner read = new Scanner(new FileReader(fileName));
