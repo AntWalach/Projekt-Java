@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CreateFile {
 
-    public static void crateFile() throws IOException {
+    public static void createFile() throws IOException {
         try {
 
             File file = new File(nameFile());
@@ -18,6 +18,17 @@ public class CreateFile {
             } else {
                 System.out.println("File already exist.");
             }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void deleteFile() throws IOException{
+        try {
+            String fileName = nameFile();
+            File f= new File(fileName);
+            f.delete();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             throw new RuntimeException(e);
