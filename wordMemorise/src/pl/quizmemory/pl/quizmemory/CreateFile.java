@@ -26,7 +26,7 @@ public class CreateFile {
     }
 
     public static String checkFileName(String name) throws IOException {
-        if(!name.contains(".txt")) {
+        if (!name.contains(".txt")) {
             name += ".txt";
         }
 
@@ -41,10 +41,8 @@ public class CreateFile {
         fileName = checkFileName(fileName);
 
 
-
         FileWriter write = new FileWriter(fileName, true);
         boolean add = true;
-
 
 
         while (add) {
@@ -65,7 +63,7 @@ public class CreateFile {
                     write.write(System.lineSeparator());
                 }
                 case 2 -> add = false;
-
+                default -> System.out.println("The picked option doesn't exist.");
 
             }
         }

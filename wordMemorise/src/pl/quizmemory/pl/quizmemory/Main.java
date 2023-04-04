@@ -31,7 +31,6 @@ public class Main {
             CreateFile file = new CreateFile();
 
 
-
             switch (userChoice) {
 
                 case 1 -> CreateFile.crateFile();
