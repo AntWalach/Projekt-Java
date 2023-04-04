@@ -9,11 +9,9 @@ public class CreateFile {
 
     public static void crateFile() throws IOException {
         try {
-            Scanner scanner = new Scanner(System.in);
-            String fileName = scanner.next();
-            fileName = checkFileName(fileName);
 
-            File file = new File(fileName);
+            File file = new File(nameFile());
+
 
             if (file.createNewFile()) {
                 System.out.println("File created: " + file.getName());
@@ -34,15 +32,26 @@ public class CreateFile {
         return name;
     }
 
-    @SuppressWarnings("resource")
-    public static void addContent() throws IOException {
+    public static String nameFile() throws IOException {
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Type file name: ");
+        System.out.print("Type file name: ");
         String fileName = scanner.next();
         fileName = checkFileName(fileName);
 
 
-        FileWriter write = new FileWriter(fileName, true);
+        return fileName;
+    }
+
+
+    @SuppressWarnings("resource")
+    public static void addContent() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+
+
+
+
+        FileWriter write = new FileWriter(nameFile(), true);
         boolean add = true;
 
 
@@ -71,5 +80,7 @@ public class CreateFile {
         write.close();
 
     }
+
+
 }
 

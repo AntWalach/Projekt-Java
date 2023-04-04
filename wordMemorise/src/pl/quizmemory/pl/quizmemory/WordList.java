@@ -11,12 +11,8 @@ public class WordList {
     public static void checkWordList() throws IOException {
 
         List<String> wordList = new ArrayList<String>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Type file name: ");
-        String fileName = scanner.next();
-        fileName = CreateFile.checkFileName(fileName);
 
-        Scanner read = new Scanner(new FileReader(fileName));
+        Scanner read = new Scanner(new FileReader(CreateFile.nameFile()));
 
         String line;
 
@@ -35,7 +31,20 @@ public class WordList {
     }
 
 
+
+
     public static void addWordToList() {
+
+        List<String> plWords = new ArrayList<String>();
+        List<String> enWords = new ArrayList<String>();
+
+
+
+
+
+
+
+
 
 
     }
