@@ -11,6 +11,7 @@ public class CreateFile {
         try {
             Scanner scanner = new Scanner(System.in);
             String fileName = scanner.next();
+            fileName = checkFileName(fileName);
 
             File file = new File(fileName);
 
