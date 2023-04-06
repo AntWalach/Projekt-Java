@@ -20,7 +20,7 @@ public class Main {
             System.out.println("1. Create/delete file");
             System.out.println("2. Check input file");
             System.out.println("3. Add content to a file");
-            System.out.println("4. ----------");
+            System.out.println("4. View content of en/pl arrays");
             System.out.println("5. Quit");
 
             System.out.print("Type option: ");
@@ -47,7 +47,7 @@ public class Main {
                 }
                 case 2 -> WordList.checkWordList();
                 case 3 -> CreateFile.addContent();
-                case 4 -> System.out.println("You picked number 3");
+                case 4 -> WordList.addWordToList();
                 case 5 -> shouldContinue = false;
                 default -> System.out.println("The picked option doesn't exist.");
             }
