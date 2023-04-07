@@ -68,4 +68,52 @@ public class WordList {
 
     }
 
+    public static boolean compareTwoWords(String word1, String word2)
+    {
+        if(word1.equals(word2))
+            return true;
+        else
+            return false;
+    }
+
+    public static void wordQuiz() throws IOException{
+        Scanner scanner = new Scanner(System.in);
+
+        addWordsToList();
+
+        System.out.println("1:PL->EN");
+        System.out.println("2:EN->PL");
+        int usersChoice = scanner.nextInt();
+
+        switch(usersChoice){
+            case 1 ->{
+                for (var i = 0; i < plWords.size(); i++) {
+                    System.out.print(plWords.get(i));
+                    System.out.print(" - translation: ");
+                    String word=scanner.nextLine();
+
+                    if(compareTwoWords(word, enWords.get(i)))
+                        System.out.println("Correct!");
+                    else
+                        System.out.println("Wrong :(");
+                }
+            }
+            case 2 ->{
+                for (var i = 0; i < enWords.size(); i++) {
+                    System.out.print(enWords.get(i));
+                    System.out.print(" - translation: ");
+                    String word=scanner.nextLine();
+
+                    if(compareTwoWords(word, plWords.get(i)))
+                        System.out.println("Correct!");
+                    else
+                        System.out.println("Wrong :(");
+                }
+            }
+            default -> System.out.println("The picked option doesn't exist.");
+        }
+    }
+
+    
 }
+

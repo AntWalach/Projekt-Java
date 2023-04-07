@@ -22,6 +22,7 @@ public class Main {
             System.out.println("3. Add content to a file");
             System.out.println("4. View content of en/pl arrays");
             System.out.println("5. Quit");
+            System.out.println("6. Word quiz");
 
             System.out.print("Type option: ");
             int userChoice = scanner.nextInt();
@@ -49,6 +50,7 @@ public class Main {
                 case 3 -> CreateFile.addContent();
                 case 4 -> WordList.showWords();
                 case 5 -> shouldContinue = false;
+                case 6 -> WordList.wordQuiz();
                 default -> System.out.println("The picked option doesn't exist.");
             }
         }
