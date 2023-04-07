@@ -8,6 +8,10 @@ import java.util.Scanner;
 
 public class WordList {
 
+
+    private static List<String> plWords = new ArrayList<String>();
+    private static List<String> enWords = new ArrayList<String>();
+
     public static void checkWordList() throws IOException {
 
         List<String> wordList = new ArrayList<String>();
@@ -31,9 +35,7 @@ public class WordList {
     }
 
 
-    public static void addWordToList() throws IOException {
-        List<String> plWords = new ArrayList<String>();
-        List<String> enWords = new ArrayList<String>();
+    public static void addWordsToList() throws IOException {
 
         Scanner read = new Scanner(new FileReader(CreateFile.nameFile()));
 
@@ -42,27 +44,27 @@ public class WordList {
             enWords.add(read.next());
         }
 
+    }
+
+
+    public static void showWords() throws IOException {
+
+
+        addWordsToList();
+
         System.out.print("Content of polish words array: ");
-         for(var i=0; i < plWords.size(); i++){
-             System.out.print(plWords.get(i));
-             System.out.print(" ");
+        for (var i = 0; i < plWords.size(); i++) {
+            System.out.print(plWords.get(i));
+            System.out.print(" ");
         }
 
         System.out.print("\n");
         System.out.print("Content of english words array: ");
-        for(var i=0; i < plWords.size(); i++){
+        for (var i = 0; i < enWords.size(); i++) {
             System.out.print(enWords.get(i));
-            System.out.print (" ");
+            System.out.print(" ");
         }
         System.out.print("\n");
-
-
-
-
-
-
-
-
 
     }
 
