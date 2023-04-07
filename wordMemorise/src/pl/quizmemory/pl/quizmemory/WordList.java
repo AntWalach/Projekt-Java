@@ -68,15 +68,31 @@ public class WordList {
 
     }
 
-    public static boolean compareTwoWords(String word1, String word2)
-    {
-        if(word1.equals(word2))
+    public static boolean compareTwoWords(String word1, String word2) {
+        if (word1.equals(word2))
             return true;
         else
             return false;
     }
 
-    public static void wordQuiz() throws IOException{
+
+    public static void translation(List<String> words, List<String> words2) {
+        Scanner scanner = new Scanner(System.in);
+        for (var i = 0; i < words.size(); i++) {
+            System.out.print(words.get(i));
+            System.out.print(" - translation: ");
+
+            String word = scanner.nextLine();
+
+            if (compareTwoWords(word, words2.get(i)))
+                System.out.println("Correct!");
+            else
+                System.out.println("Wrong :(");
+        }
+
+    }
+
+    public static void wordQuiz() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         addWordsToList();
@@ -85,35 +101,18 @@ public class WordList {
         System.out.println("2:EN->PL");
         String usersChoice = scanner.nextLine();
 
-        switch(usersChoice){
-            case "1" ->{
-                for (var i = 0; i < plWords.size(); i++) {
-                    System.out.print(plWords.get(i));
-                    System.out.print(" - translation: ");
-                    String word=scanner.nextLine();
-
-                    if(compareTwoWords(word, enWords.get(i)))
-                        System.out.println("Correct!");
-                    else
-                        System.out.println("Wrong :(");
-                }
+        switch (usersChoice) {
+            case "1" -> {
+                translation(plWords, enWords);
             }
-            case "2" ->{
-                for (var i = 0; i < enWords.size(); i++) {
-                    System.out.print(enWords.get(i));
-                    System.out.print(" - translation: ");
-                    String word=scanner.nextLine();
+            case "2" -> {
 
-                    if(compareTwoWords(word, plWords.get(i)))
-                        System.out.println("Correct!");
-                    else
-                        System.out.println("Wrong :(");
-                }
+                translation(enWords, plWords);
             }
             default -> System.out.println("The picked option doesn't exist.");
         }
     }
 
-    
+
 }
 
