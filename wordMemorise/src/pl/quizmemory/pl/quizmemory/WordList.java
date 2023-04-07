@@ -83,10 +83,10 @@ public class WordList {
 
         System.out.println("1:PL->EN");
         System.out.println("2:EN->PL");
-        int usersChoice = scanner.nextInt();
+        String usersChoice = scanner.nextLine();
 
         switch(usersChoice){
-            case 1 ->{
+            case "1" ->{
                 for (var i = 0; i < plWords.size(); i++) {
                     System.out.print(plWords.get(i));
                     System.out.print(" - translation: ");
@@ -98,7 +98,7 @@ public class WordList {
                         System.out.println("Wrong :(");
                 }
             }
-            case 2 ->{
+            case "2" ->{
                 for (var i = 0; i < enWords.size(); i++) {
                     System.out.print(enWords.get(i));
                     System.out.print(" - translation: ");
