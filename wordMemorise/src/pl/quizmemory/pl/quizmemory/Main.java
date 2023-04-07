@@ -47,7 +47,7 @@ public class Main {
                 }
                 case 2 -> WordList.checkWordList();
                 case 3 -> CreateFile.addContent();
-                case 4 -> WordList.addWordToList();
+                case 4 -> WordList.showWords();
                 case 5 -> shouldContinue = false;
                 default -> System.out.println("The picked option doesn't exist.");
             }
