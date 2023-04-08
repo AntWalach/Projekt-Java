@@ -90,6 +90,43 @@ public class GamesManagement {
     }
 
     public static void Flashcards() throws IOException {
-        System.out.println("chuj");
+        boolean shouldContinue=true;
+        boolean changeLanguage=true;
+        Scanner scanner = new Scanner(System.in);
+
+        WordList.addWordsToList();
+        int listIndex=0;
+
+        while(shouldContinue){
+            System.out.println("1:Next word");
+            System.out.println("2:Previous word");
+            System.out.println("SPACE:Flip card");
+            System.out.println("4:Exit");
+
+            if(changeLanguage)
+                System.out.println(WordList.plWords.get(listIndex));
+            else
+                System.out.println(WordList.enWords.get(listIndex));
+
+            String choice = scanner.nextLine();
+
+            switch (choice){
+                case "1" ->{
+                    if(listIndex==WordList.plWords.size()-1)
+                        listIndex=0;
+                    else
+                        listIndex++;
+                }
+                case "2" ->{
+                    if(listIndex==0)
+                        listIndex=WordList.plWords.size()-1;
+                    else
+                        listIndex--;
+                }
+                case " " -> changeLanguage = !changeLanguage;
+                case "4" -> shouldContinue=false;
+                default -> System.out.println("The picked option doesn't exist.");
+            }
+        }
     }
 }
