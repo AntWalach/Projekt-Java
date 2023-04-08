@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class WordList {
 
 
-    private static List<String> plWords = new ArrayList<String>();
-    private static List<String> enWords = new ArrayList<String>();
+    public static List<String> plWords = new ArrayList<String>();
+    public static List<String> enWords = new ArrayList<String>();
 
     public static void checkWordList() throws IOException {
 
@@ -32,6 +32,8 @@ public class WordList {
             System.out.print(" ");
         }
 
+        read.close();
+
     }
 
 
@@ -43,6 +45,8 @@ public class WordList {
             plWords.add(read.next());
             enWords.add(read.next());
         }
+
+        read.close();
 
     }
 
@@ -67,52 +71,5 @@ public class WordList {
         System.out.print("\n");
 
     }
-
-    public static boolean compareTwoWords(String word1, String word2) {
-        if (word1.equals(word2))
-            return true;
-        else
-            return false;
-    }
-
-
-    public static void translation(List<String> words, List<String> words2) {
-        Scanner scanner = new Scanner(System.in);
-        for (var i = 0; i < words.size(); i++) {
-            System.out.print(words.get(i));
-            System.out.print(" - translation: ");
-
-            String word = scanner.nextLine();
-
-            if (compareTwoWords(word, words2.get(i)))
-                System.out.println("Correct!");
-            else
-                System.out.println("Wrong :(");
-        }
-
-    }
-
-    public static void wordQuiz() throws IOException {
-        Scanner scanner = new Scanner(System.in);
-
-        addWordsToList();
-
-        System.out.println("1:PL->EN");
-        System.out.println("2:EN->PL");
-        String usersChoice = scanner.nextLine();
-
-        switch (usersChoice) {
-            case "1" -> {
-                translation(plWords, enWords);
-            }
-            case "2" -> {
-
-                translation(enWords, plWords);
-            }
-            default -> System.out.println("The picked option doesn't exist.");
-        }
-    }
-
-
 }
 
