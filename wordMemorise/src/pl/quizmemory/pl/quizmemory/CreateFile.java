@@ -24,10 +24,10 @@ public class CreateFile {
         }
     }
 
-    public static void deleteFile() throws IOException{
+    public static void deleteFile() throws IOException {
         try {
             String fileName = nameFile();
-            File f= new File(fileName);
+            File f = new File(fileName);
             f.delete();
         } catch (IOException e) {
             System.out.println("An error occurred.");
@@ -60,8 +60,6 @@ public class CreateFile {
         Scanner scanner = new Scanner(System.in);
 
 
-
-
         FileWriter write = new FileWriter(nameFile(), true);
         boolean add = true;
 
@@ -80,7 +78,7 @@ public class CreateFile {
 
                     String plWord = scanner.next();
                     String enWord = scanner.next();
-                    write.write(plWord + " " + enWord);
+                    write.write(plWord + "," + enWord + ",");
                     write.write(System.lineSeparator());
                 }
                 case 2 -> add = false;

@@ -1,7 +1,10 @@
-pl en
-pl1 en1
-pl5 en5
-pl6 en6
-pl7 en7
-auto car
-cebula onion
+pl,en,
+pl1,en1,
+pl5,en5,
+pl6,en6,
+pl7,en7,
+auto,car,
+cebula,onion,
+taniec,dance,
+ciasto,cake,
+dwa słowa,two words,
