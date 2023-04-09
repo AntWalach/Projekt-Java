@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Main {
 
-
     public static void main(String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
@@ -23,6 +22,8 @@ public class Main {
             System.out.println("4. View content of en/pl arrays");
             System.out.println("5. GAMES!");
             System.out.println("6. Quit");
+
+            GameGUI.GUI();
 
             System.out.print("Type option: ");
             int userChoice = scanner.nextInt();
