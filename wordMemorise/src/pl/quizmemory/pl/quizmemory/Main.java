@@ -23,7 +23,7 @@ public class Main {
             System.out.println("5. GAMES!");
             System.out.println("6. Quit");
 
-            GameGUI.GUI();
+            MenuGUI.menuGUI();
 
             System.out.print("Type option: ");
             int userChoice = scanner.nextInt();
