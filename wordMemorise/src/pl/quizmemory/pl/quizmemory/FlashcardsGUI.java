@@ -35,9 +35,8 @@ public class FlashcardsGUI{
         text1.setFont(new Font("Arial",Font.PLAIN,25));
         text1.setBounds(500,300,200,100);
 
-        JButton buttonFile=new JButton("Submit");
-        buttonFile.setBounds(550,500,100,50);
-
+        JButton buttonFile=MenuGUI.setButton(550,500,100,50);
+        buttonFile.setText("Submit");
 
         JTextField textField = new JTextField();
         //textField.setPreferredSize(new Dimension(250,40));
@@ -82,21 +81,18 @@ public class FlashcardsGUI{
         //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500,50,200,100);
 
-        button1=new JButton();
-        button2=new JButton();
-        button3=new JButton();
-        button4=new JButton();
-        buttonCard=new JButton();
-        JButton buttonExit=new JButton("Return");
-        button1.setBounds(150,400,100,50);
-        button2.setBounds(950,400,100,50);
-        button3.setBounds(450,700,100,50);
-        button4.setBounds(650,700,100,50);
-        buttonExit.setBounds(50,50,100,50);
+        button1=MenuGUI.setButton(150,400,100,50);
+        button2=MenuGUI.setButton(950,400,100,50);
+        button3=MenuGUI.setButton(450,700,100,50);
+        button4=MenuGUI.setButton(650,700,100,50);
+        JButton buttonExit=MenuGUI.setButton(50,50,100,50);
 
-        buttonCard.setBounds(350,200,500,450);
+
+        buttonCard=MenuGUI.setButton(350,200,500,450);
         buttonCard.setText("Click to start");
         buttonCard.setFont(new Font("Arial",Font.BOLD,30));
+
+        buttonExit.setText("Return");
 
         ImageIcon arrowLeft=new ImageIcon("arrowLeft.png");
         ImageIcon arrowRight=new ImageIcon("arrowRight.png");
@@ -115,17 +111,11 @@ public class FlashcardsGUI{
         Image image4 = correctIcon.getImage();
         Image newimage4 = image4.getScaledInstance(40, 40,  java.awt.Image.SCALE_SMOOTH);
         correctIcon = new ImageIcon(newimage4);
-
         button1.setIcon(arrowLeft);
         button2.setIcon(arrowRight);
         button3.setIcon(wrongIcon);
         button4.setIcon(correctIcon);
-        button1.setFocusable(false);
-        button2.setFocusable(false);
-        button3.setFocusable(false);
-        button4.setFocusable(false);
-        buttonCard.setFocusable(false);
-        buttonExit.setFocusable(false);
+
         button1.addActionListener(e-> FlashcardsGame.previousCard());
         button2.addActionListener(e-> FlashcardsGame.nextCard());
         button3.addActionListener(e-> System.out.println("wrong"));

@@ -25,16 +25,11 @@ public class MenuGUI {
         //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500,50,400,100);
 
-        button1=new JButton();
-        button2=new JButton();
-        button3=new JButton();
-        button4=new JButton();
-        buttonGames=new JButton();
-        button1.setBounds(300,250,200,100);
-        button2.setBounds(700,250,200,100);
-        button3.setBounds(300,400,200,100);
-        button4.setBounds(700,400,200,100);
-        buttonGames.setBounds(300,550,600,150);
+        button1=setButton(300,250,200,100);
+        button2=setButton(700,250,200,100);
+        button3=setButton(300,400,200,100);
+        button4=setButton(700,400,200,100);
+        buttonGames=setButton(300,550,600,150);
 
         button1.setText("Create/delete file");
         button2.setText("Check input file");
@@ -42,11 +37,6 @@ public class MenuGUI {
         button4.setText("View content of en/pl arrays");
         buttonGames.setText("GAMES!");
 
-        button1.setFocusable(false);
-        button2.setFocusable(false);
-        button3.setFocusable(false);
-        button4.setFocusable(false);
-        buttonGames.setFocusable(false);
         button1.addActionListener(e-> System.out.println("1"));
         button2.addActionListener(e-> System.out.println("2"));
         button3.addActionListener(e-> System.out.println("3"));
@@ -66,6 +56,14 @@ public class MenuGUI {
         menuPanel.add(buttonGames);
 
         mainFrame.add(menuPanel);
+    }
+
+    public static JButton setButton(int x, int y, int width, int height){
+        JButton newButton = new JButton();
+        newButton.setBounds(x,y,width,height);
+        newButton.setFocusable(false);
+
+        return  newButton;
     }
 
     public static class Panel extends JPanel{
