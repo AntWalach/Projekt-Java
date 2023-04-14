@@ -8,7 +8,7 @@ public class MenuGUI {
     static Frame mainFrame;
     static Panel menuPanel;
     static JButton buttonCreateDeleteFile;
-    static JButton button2;
+    static JButton buttonCheckInputFile;
     static JButton button3;
     static JButton button4;
     static JButton buttonGames;
@@ -26,19 +26,19 @@ public class MenuGUI {
         title.setBounds(500,50,400,100);
 
         buttonCreateDeleteFile =setButton(300,250,200,100);
-        button2=setButton(700,250,200,100);
+        buttonCheckInputFile =setButton(700,250,200,100);
         button3=setButton(300,400,200,100);
         button4=setButton(700,400,200,100);
         buttonGames=setButton(300,550,600,150);
 
         buttonCreateDeleteFile.setText("Create/delete file");
-        button2.setText("Check input file");
+        buttonCheckInputFile.setText("Check input file");
         button3.setText("Add content to a file");
         button4.setText("View content of en/pl arrays");
         buttonGames.setText("GAMES!");
 
         buttonCreateDeleteFile.addActionListener(e-> CreateDeleteFileGUI.choicePanelGUI());
-        button2.addActionListener(e-> System.out.println("2"));
+        buttonCheckInputFile.addActionListener(e-> CheckInputFileGUI.filenameGUI());
         button3.addActionListener(e-> System.out.println("3"));
         button4.addActionListener(e-> System.out.println("4"));
         buttonGames.addActionListener(e-> FlashcardsGUI.filenameGUI());
@@ -50,7 +50,7 @@ public class MenuGUI {
 
         menuPanel.add(title);
         menuPanel.add(buttonCreateDeleteFile);
-        menuPanel.add(button2);
+        menuPanel.add(buttonCheckInputFile);
         menuPanel.add(button3);
         menuPanel.add(button4);
         menuPanel.add(buttonGames);
