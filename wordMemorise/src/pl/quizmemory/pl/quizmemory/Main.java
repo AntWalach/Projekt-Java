@@ -42,8 +42,8 @@ public class Main {
                     int userChoice1 = scanner.nextInt();
 
                     switch(userChoice1){
-                        case 1 -> CreateFile.createFile();
-                        case 2 -> CreateFile.deleteFile();
+                        case 1 -> CreateFile.createFile("test10"); //musialem tu zmienic
+                        case 2 -> CreateFile.deleteFile("test10");
                         default -> System.out.println("The picked option doesn't exist.");
                     }
                 }

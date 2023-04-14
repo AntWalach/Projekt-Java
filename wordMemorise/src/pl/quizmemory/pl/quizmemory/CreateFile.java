@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class CreateFile {
 
-    public static void createFile() throws IOException {
+    public static void createFile(String name) throws IOException {
         try {
 
-            File file = new File(nameFile());
+            File file = new File(checkFileName(name));
 
 
             if (file.createNewFile()) {
@@ -24,10 +24,10 @@ public class CreateFile {
         }
     }
 
-    public static void deleteFile() throws IOException {
+    public static void deleteFile(String fileName) throws IOException {
         try {
-            String fileName = nameFile();
-            File f = new File(fileName);
+            //String fileName = nameFile();
+            File f = new File(checkFileName(fileName));
             f.delete();
         } catch (IOException e) {
             System.out.println("An error occurred.");
