@@ -57,7 +57,7 @@ public class FlashcardsGUI{
         filenamePanel.add(textField);
         filenamePanel.add(buttonFile);
 
-        MenuGUI.menuPanel.setVisible(false);
+        GameChoiceGUI.choiceMenu.setVisible(false);
         MenuGUI.mainFrame.add(filenamePanel);
     }
 

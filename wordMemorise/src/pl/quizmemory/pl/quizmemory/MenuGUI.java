@@ -17,12 +17,8 @@ public class MenuGUI {
 
         JLabel title=new JLabel();
         title.setText("Word Game");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255,255,255));
         title.setFont(new Font("Arial",Font.PLAIN,40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500,50,400,100);
 
         button1=setButton(300,250,200,100);
@@ -41,7 +37,7 @@ public class MenuGUI {
         button2.addActionListener(e-> System.out.println("2"));
         button3.addActionListener(e-> System.out.println("3"));
         button4.addActionListener(e-> System.out.println("4"));
-        buttonGames.addActionListener(e-> FlashcardsGUI.filenameGUI());
+        buttonGames.addActionListener(e-> GameChoiceGUI.gamesMenu());
 
         menuPanel = new Panel();
 
@@ -54,7 +50,6 @@ public class MenuGUI {
         menuPanel.add(button3);
         menuPanel.add(button4);
         menuPanel.add(buttonGames);
-
         mainFrame.add(menuPanel);
     }
 
