@@ -22,8 +22,8 @@ public class Main {
             System.out.println("4. View content of en/pl arrays");
             System.out.println("5. GAMES!");
             System.out.println("6. Quit");
-
-            MenuGUI.menuGUI();
+            LoginGUI.ILogin();
+            //MenuGUI.menuGUI();
 
             System.out.print("Type option: ");
             int userChoice = scanner.nextInt();
