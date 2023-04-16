@@ -19,18 +19,13 @@ public class FlashcardsGUI{
 
         JLabel title=new JLabel();
         title.setText("Flashcards");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255,255,255));
         title.setFont(new Font("Arial",Font.PLAIN,40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500,50,200,100);
 
         JLabel text1=new JLabel();
         text1.setText("Enter file name:");
         text1.setHorizontalTextPosition(JLabel.CENTER);
-        //text1.setVerticalTextPosition(JLabel.TOP);
         text1.setForeground(new Color(255,255,255));
         text1.setFont(new Font("Arial",Font.PLAIN,25));
         text1.setBounds(500,300,200,100);
@@ -39,7 +34,6 @@ public class FlashcardsGUI{
         buttonFile.setText("Submit");
 
         JTextField textField = new JTextField();
-        //textField.setPreferredSize(new Dimension(250,40));
         textField.setBounds(500,400,200,50);
         textField.setFont(new Font("Arial",Font.PLAIN,20));
         buttonFile.addActionListener(e-> {

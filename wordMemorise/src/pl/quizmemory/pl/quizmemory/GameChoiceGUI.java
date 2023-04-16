@@ -32,7 +32,7 @@ public class GameChoiceGUI {
         flashcardsGameButton.setText("Flashcards game");
         flashcardsGameButton.setFont(new Font("Arial",Font.BOLD,15));
 
-        transGameButton.addActionListener(e-> TranslationGUI.translationGame());
+        transGameButton.addActionListener(e-> TranslationGUI.filenameGUI_COPY());
         flashcardsGameButton.addActionListener(e-> FlashcardsGUI.filenameGUI());
 
 
