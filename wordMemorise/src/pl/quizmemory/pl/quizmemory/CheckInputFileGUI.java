@@ -60,40 +60,39 @@ public class CheckInputFileGUI {
     public static void checkInputFileGUI(){
 
         JLabel title=new JLabel();
-        title.setText("Delete file");
+        title.setText("Check input file");
         //title.setHorizontalTextPosition(JLabel.CENTER);
         //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255,255,255));
         title.setFont(new Font("Arial",Font.PLAIN,40));
         //title.setVerticalAlignment(JLabel.CENTER);
         //title.setHorizontalAlignment(JLabel.CENTER);
-        title.setBounds(500,50,200,100);
+        title.setBounds(500,50,300,100);
 
-        textArea=new JTextArea(10,10);
+        textArea=new JTextArea();
         textArea.setBackground(new Color(0,0,51));
         textArea.setForeground(new Color(255,255,255));
         textArea.setFont(new Font("Arial",Font.PLAIN,20));
-        textArea.setBounds(250,200,800,500);
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         addWordsToTextField();
+        textArea.setCaretPosition(0);
 
-        JScrollPane scrollPane=new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scrollPane.setPreferredSize(new Dimension(800,500));
-        scrollPane.isWheelScrollingEnabled();
+        JScrollPane scrollPane=new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setBounds(250,200,700,500);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
         checkInputFilePanel=new MenuGUI.Panel();
         checkInputFilePanel.setLayout(null);
         checkInputFilePanel.add(title);
-        checkInputFilePanel.add(scrollPane, BorderLayout.CENTER);
-        checkInputFilePanel.add(textArea);
+        checkInputFilePanel.add(scrollPane);
 
         MenuGUI.mainFrame.add(checkInputFilePanel);
     }
 
     public static void addWordsToTextField(){
         for(int i=0; i<WordList.plWords.size(); i++) {
-            textArea.append(WordList.plWords.get(i) + " - " + WordList.enWords.get(i) + "\n");
+            textArea.append((i+1) + ". " + WordList.plWords.get(i).trim() + " - " + WordList.enWords.get(i).trim() + "\n \n");
         }
 
     }
