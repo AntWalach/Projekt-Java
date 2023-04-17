@@ -7,9 +7,9 @@ import java.io.IOException;
 
 public class CreateDeleteFileGUI {
 
-    public static Panel choicePanel;
-    public static Panel createPanel;
-    public static Panel deletePanel;
+    public static MenuGUI.Panel choicePanel;
+    public static MenuGUI.Panel createPanel;
+    public static MenuGUI.Panel deletePanel;
 
 
     public static void choicePanelGUI(){
@@ -32,7 +32,7 @@ public class CreateDeleteFileGUI {
         buttonCreate.addActionListener(e -> createFileGUI());
         buttonDelete.addActionListener(e -> deleteFileGUI());
 
-        choicePanel=new Panel();
+        choicePanel=new MenuGUI.Panel();
         choicePanel.setLayout(null);
         choicePanel.add(title);
         choicePanel.add(buttonCreate);
@@ -76,7 +76,7 @@ public class CreateDeleteFileGUI {
             }
         });
 
-        createPanel=new Panel();
+        createPanel=new MenuGUI.Panel();
         createPanel.setLayout(null);
         createPanel.add(title);
         createPanel.add(text1);
@@ -121,7 +121,7 @@ public class CreateDeleteFileGUI {
             }
         });
 
-        deletePanel=new Panel();
+        deletePanel= new MenuGUI.Panel();
         deletePanel.setLayout(null);
         deletePanel.add(title);
         deletePanel.add(text1);
@@ -147,14 +147,6 @@ public class CreateDeleteFileGUI {
             CreateFile.deleteFile(fileName);
             deletePanel.setVisible(false);
             MenuGUI.menuPanel.setVisible(true);
-        }
-    }
-
-    public static class Panel extends JPanel {
-        Panel() {
-            //background color
-            this.setBackground(new Color(0, 0, 51));
-            this.setBounds(0,0,1200,900);
         }
     }
 }

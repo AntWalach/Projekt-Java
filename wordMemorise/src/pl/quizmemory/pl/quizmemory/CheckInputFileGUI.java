@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class CheckInputFileGUI {
 
-    public static JPanel filenamePanel;
-    public static JPanel checkInputFilePanel;
+    public static MenuGUI.Panel filenamePanel;
+    public static MenuGUI.Panel checkInputFilePanel;
     public static JTextArea textArea;
 
     public static void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
@@ -46,7 +46,7 @@ public class CheckInputFileGUI {
             }
         });
 
-        filenamePanel=new FlashcardsGUI.Panel();
+        filenamePanel=new MenuGUI.Panel();
         filenamePanel.setLayout(null);
         filenamePanel.add(title);
         filenamePanel.add(text1);
@@ -69,7 +69,7 @@ public class CheckInputFileGUI {
         //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500,50,200,100);
 
-        textArea=new JTextArea();
+        textArea=new JTextArea(10,10);
         textArea.setBackground(new Color(0,0,51));
         textArea.setForeground(new Color(255,255,255));
         textArea.setFont(new Font("Arial",Font.PLAIN,20));
@@ -79,12 +79,14 @@ public class CheckInputFileGUI {
         addWordsToTextField();
 
         JScrollPane scrollPane=new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setPreferredSize(new Dimension(800,500));
+        scrollPane.isWheelScrollingEnabled();
 
-        checkInputFilePanel=new Panel();
+        checkInputFilePanel=new MenuGUI.Panel();
         checkInputFilePanel.setLayout(null);
         checkInputFilePanel.add(title);
+        checkInputFilePanel.add(scrollPane, BorderLayout.CENTER);
         checkInputFilePanel.add(textArea);
-        checkInputFilePanel.add(scrollPane);
 
         MenuGUI.mainFrame.add(checkInputFilePanel);
     }
@@ -101,14 +103,6 @@ public class CheckInputFileGUI {
             WordList.addWordsToListTest(CreateFile.checkFileName(fileName));
             filenamePanel.setVisible(false);
             checkInputFileGUI();
-        }
-    }
-
-    public static class Panel extends JPanel {
-        Panel() {
-            //background color
-            this.setBackground(new Color(0, 0, 51));
-            this.setBounds(0,0,1200,900);
         }
     }
 }
