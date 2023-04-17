@@ -3,6 +3,7 @@ package pl.quizmemory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +13,21 @@ public class TranslationGUI {
 
     static MenuGUI.Panel filenamePanel;
     static MenuGUI.Panel traslationGamePanel;
+    static MenuGUI.Panel endScreenPanel;
     static JRadioButton PLtoEN;
     static JRadioButton ENtoPL;
     static JLabel wordToTranslate;
+    static JLabel Score;
+    static JLabel answerResult;
     static JTextField answerField;
-    static JButton checkButton;
+    static java.util.List<String> LearnWords;
+    static java.util.List<String> AnswerWords;
+
+    static int answersPointer = 0;
+    static int deletedWords = 0;
+
+    static int maxScore = 0;
+    static String word;
 
     public static void filenameGUI_COPY(){
         //to jest kopia funckji znajdującej się w flashcardsGUI
@@ -93,10 +104,25 @@ public class TranslationGUI {
 
     public static void languageChoice() throws IOException {
 
-        if(PLtoEN.isSelected())
-            translation(WordList.plWords, WordList.enWords);
-        else
-            translation(WordList.enWords, WordList.plWords);
+        //naprawa złego zapisywania do pliku(w tablicy z polskimi słowami przed każdym słowem są białe znaki "\r\n")
+        String fixedString = "";
+        for(int i=0; i<WordList.plWords.size(); i++)
+        {
+            fixedString = WordList.plWords.get(i);
+            WordList.plWords.set(i, fixedString.trim());
+        }
+
+        LearnWords = new ArrayList<String>();
+        AnswerWords = new ArrayList<String>();
+
+        if(PLtoEN.isSelected()) {
+            LearnWords.addAll(WordList.plWords);
+            AnswerWords.addAll(WordList.enWords);
+        }
+        else{
+            LearnWords.addAll(WordList.enWords);
+            AnswerWords.addAll(WordList.plWords);
+        }
     }
 
     public static boolean compareTwoWords(String word1, String word2) {
@@ -106,89 +132,127 @@ public class TranslationGUI {
             return false;
     }
 
-    public static void translation(java.util.List<String> words, java.util.List<String> words2) {
-        wordToTranslate.setText(words.get(0));
-        /*
-        Scanner scanner = new Scanner(System.in);
+    public static void translationEngine() {
+        if (compareTwoWords(word, AnswerWords.get(answersPointer))){
+            LearnWords.remove(answersPointer);
+            AnswerWords.remove(answersPointer);
+            deletedWords++;
 
-        int learnedWordsCounter = 0;
-        int primaryWordsNumber = words.size();
-        int numberOfDeletedWords = 0;
-        java.util.List<String> unlearnedWords = new ArrayList<String>();
-        List<String> answerWords = new ArrayList<String>();
-        unlearnedWords.addAll(words);
-        answerWords.addAll(words2);
-
-        while(unlearnedWords.size() != 0) {
-            for(int i=0; i<words.size(); i++) {
-                System.out.print(words.get(i));
-                //System.out.print(" - translation: ");
-
-                String word = scanner.nextLine();
-
-                if (compareTwoWords(word, words2.get(i))) {
-                    System.out.println("Correct!");
-                    unlearnedWords.remove(unlearnedWords.get(i-numberOfDeletedWords));
-                    answerWords.remove(answerWords.get(i-numberOfDeletedWords));
-                    learnedWordsCounter++;
-                    numberOfDeletedWords++;
-                    System.out.println("Acquired vocabulary " + learnedWordsCounter + "/" + primaryWordsNumber );
-                } else
-                    System.out.println("Wrong :(");
-            }
-            words.clear();
-            words2.clear();
-            words.addAll(unlearnedWords);
-            words2.addAll(answerWords);
-            numberOfDeletedWords = 0;
+            Score.setText("Your Score: " + deletedWords + "/" + maxScore);
+            answerResult.setText("Correct");
+            answerResult.setForeground(new Color(47, 250, 2));
+        }
+        else
+        {
+            answerResult.setText("Wrong");
+            answerResult.setForeground(new Color(250, 9, 9));
+            answersPointer++;
         }
 
-         */
-
+        if(LearnWords.size() != 0)
+        {
+            if(answersPointer == LearnWords.size())
+            {
+                answersPointer = 0;
+            }
+            answerField.setText("");
+            wordToTranslate.setText(LearnWords.get(answersPointer));
+        }
+        else
+            endScreen();
     }
 
 
 
     public static void translationGame() throws IOException {
+        answersPointer = 0;
+        deletedWords = 0;
+        languageChoice();
+        maxScore = LearnWords.size();
+
         JLabel title=new JLabel();
         title.setText("Transition Game");
         title.setForeground(new Color(255,255,255));
         title.setFont(new Font("Arial",Font.PLAIN,40));
         title.setBounds(470,50,500,100);
 
+
+
         wordToTranslate=new JLabel();
-        wordToTranslate.setText("");
+        wordToTranslate.setText(LearnWords.get(0));
         wordToTranslate.setHorizontalTextPosition(JLabel.CENTER);
         wordToTranslate.setForeground(new Color(255,255,255));
         wordToTranslate.setFont(new Font("Arial",Font.PLAIN,35));
-        wordToTranslate.setBounds(475,330,200,100);
+        wordToTranslate.setBounds(520,300,200,50);
 
-        JLabel dash=new JLabel();
-        dash.setText("-");
-        dash.setHorizontalTextPosition(JLabel.CENTER);
-        dash.setForeground(new Color(255,255,255));
-        dash.setFont(new Font("Arial",Font.PLAIN,35));
-        dash.setBounds(585,330,200,100);
+
 
         answerField = new JTextField();
-        answerField.setBounds(620,358,150,50);
+        answerField.setBounds(520,390,150,50);
         answerField.setFont(new Font("Arial",Font.PLAIN,20));
+        answerField.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                word = answerField.getText();
+                translationEngine();
+            }
+        });
 
-        checkButton = MenuGUI.setButton(550,450,100,50);
-        checkButton.setText("Check");
+        Score = new JLabel();
+        Score.setText("Your Score: " + deletedWords + "/" + maxScore);
+        Score.setForeground(new Color(255,255,255));
+        Score.setFont(new Font("Arial",Font.PLAIN,30));
+        Score.setBounds(495,490,500,100);
+
+        answerResult = new JLabel();
+        answerResult.setText("");
+        answerResult.setFont(new Font("Arial",Font.PLAIN,30));
+        answerResult.setBounds(700,360,200,100);
 
         traslationGamePanel=new MenuGUI.Panel();
         traslationGamePanel.setLayout(null);
         traslationGamePanel.add(title);
         traslationGamePanel.add(wordToTranslate);
-        traslationGamePanel.add(dash);
         traslationGamePanel.add(answerField);
-        traslationGamePanel.add(checkButton);
+        traslationGamePanel.add(Score);
+        traslationGamePanel.add(answerResult);
 
         filenamePanel.setVisible(false);
         MenuGUI.mainFrame.add(traslationGamePanel);
 
+    }
 
-        languageChoice();
+    public static void endScreen() {
+        JLabel title=new JLabel();
+        title.setText("Session ended");
+        title.setForeground(new Color(255,255,255));
+        title.setFont(new Font("Arial",Font.PLAIN,40));
+        title.setBounds(470,50,500,100);
+
+        JButton menuButton=MenuGUI.setButton(400,400,130,50);
+        menuButton.setText("Back to menu");
+        menuButton.addActionListener(e-> {
+            endScreenPanel.setVisible(false);
+            MenuGUI.mainFrame.add(MenuGUI.menuPanel);
+        });
+
+        JButton resetButton=MenuGUI.setButton(650,400,130,50);
+        resetButton.setText("Reset Game");
+        resetButton.addActionListener(e-> {
+            endScreenPanel.setVisible(false);
+            try {
+                translationGame();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        endScreenPanel =new MenuGUI.Panel();
+        endScreenPanel.setLayout(null);
+        endScreenPanel.add(title);
+        endScreenPanel.add(menuButton);
+        endScreenPanel.add(resetButton);
+
+        traslationGamePanel.setVisible(false);
+        MenuGUI.mainFrame.add(endScreenPanel);
     }
 }
