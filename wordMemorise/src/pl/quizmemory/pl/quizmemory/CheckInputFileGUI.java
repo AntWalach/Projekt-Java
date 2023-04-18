@@ -91,10 +91,9 @@ public class CheckInputFileGUI {
     }
 
     public static void addWordsToTextField(){
-        for(int i=0; i<WordList.plWords.size(); i++) {
+        for(int i=0; i<WordList.plWords.size()-1; i++) {
             textArea.append((i+1) + ". " + WordList.plWords.get(i).trim() + " - " + WordList.enWords.get(i).trim() + "\n \n");
         }
-
     }
     public static void addContentToFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if(e.getSource()==buttonFile){

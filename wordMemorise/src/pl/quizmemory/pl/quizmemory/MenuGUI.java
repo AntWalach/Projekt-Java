@@ -39,7 +39,7 @@ public class MenuGUI {
 
         buttonCreateDeleteFile.addActionListener(e-> CreateDeleteFileGUI.choicePanelGUI());
         buttonCheckInputFile.addActionListener(e-> CheckInputFileGUI.filenameGUI());
-        button3.addActionListener(e-> System.out.println("3"));
+        button3.addActionListener(e-> AddContentToFileGUI.filenameGUI());
         button4.addActionListener(e-> System.out.println("4"));
         buttonGames.addActionListener(e-> FlashcardsGUI.filenameGUI());
 

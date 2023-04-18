@@ -92,5 +92,16 @@ public class CreateFile {
     }
 
 
+    public static void addContentToFile(String fileName, String plWord, String enWord) throws IOException {
+
+        FileWriter write = new FileWriter(checkFileName(fileName), true);
+
+        write.write(plWord + "," + enWord + ",");
+        write.write(System.lineSeparator());
+
+        write.close();
+
+    }
+
 }
 
