@@ -4,4 +4,4 @@ hydraulik,plumber,
 kapelusz,hat,
 auto,car,
 cebula,onion,
-koniec,end
+koniec,end,

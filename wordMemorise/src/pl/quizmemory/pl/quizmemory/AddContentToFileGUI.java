@@ -17,9 +17,7 @@ public class AddContentToFileGUI {
 
     public static JPanel filenamePanel;
     public static JPanel addContentToFilePanel;
-    public static JPanel editFileContentPanel;
     public static String fileName;
-    public static JTextArea changeFileTextArea;
 
     public static void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
 
@@ -117,65 +115,27 @@ public class AddContentToFileGUI {
             }
         });
 
+        JButton buttonExit=MenuGUI.setButton(50,50,100,50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e-> returnMenu());
+
         addContentToFilePanel=new MenuGUI.Panel();
         addContentToFilePanel.setLayout(null);
         addContentToFilePanel.add(title);
         addContentToFilePanel.add(textField1);
         addContentToFilePanel.add(textField2);
         addContentToFilePanel.add(buttonSubmit);
+        addContentToFilePanel.add(buttonExit);
 
         MenuGUI.mainFrame.add(addContentToFilePanel);
     }
 
-    public static void editContentFileGUI(){
-        JLabel title=new JLabel();
-        title.setText("Edit input file");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
-        title.setForeground(new Color(255,255,255));
-        title.setFont(new Font("Arial",Font.PLAIN,40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
-        title.setBounds(500,50,300,100);
-
-        changeFileTextArea=new JTextArea();
-        changeFileTextArea.setBackground(new Color(255,255,255));
-        changeFileTextArea.setForeground(new Color(0,0,0));
-        changeFileTextArea.setFont(new Font("Arial",Font.PLAIN,20));
-        changeFileTextArea.setLineWrap(true);
-        addWordsToTextField();
-        changeFileTextArea.setCaretPosition(0);
-
-        JScrollPane scrollPane=new JScrollPane(changeFileTextArea, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setBounds(250,200,700,500);
-        //scrollPane.setBorder(BorderFactory.createEmptyBorder());
-
-        JButton buttonSubmit=MenuGUI.setButton(550,750,100,50);
-        buttonSubmit.setText("Submit");
-
-        buttonSubmit.addActionListener(e->{
-            try {
-                changeText(e,changeFileTextArea,buttonSubmit);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
-        editFileContentPanel=new MenuGUI.Panel();
-        editFileContentPanel.setLayout(null);
-        editFileContentPanel.add(title);
-        editFileContentPanel.add(scrollPane);
-        editFileContentPanel.add(buttonSubmit);
-
-        MenuGUI.mainFrame.add(editFileContentPanel);
-    }
 
     public static void openFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if(e.getSource()==buttonFile){
             fileName=textField.getText();
             filenamePanel.setVisible(false);
             addContentToFileGUI();
-            //editContentFileGUI();
         }
     }
 
@@ -211,20 +171,9 @@ public class AddContentToFileGUI {
         }
     }
 
-    public static void addWordsToTextField(){
-        for(int i=0; i<WordList.plWords.size()-1; i++) {
-            changeFileTextArea.append(WordList.plWords.get(i).trim() + "," + WordList.enWords.get(i).trim() + "\n");
-        }
-    }
-
-    public static void changeText(ActionEvent e, JTextArea textArea, JButton button) throws IOException {
-        if(e.getSource()==button){
-            File file= new File(CreateFile.checkFileName(fileName));
-            String filePath = file.getAbsolutePath();
-
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
-            writer.write(textArea.getText());
-
-        }
+    public static void returnMenu()
+    {
+        addContentToFilePanel.setVisible(false);
+        MenuGUI.menuPanel.setVisible(true);
     }
 }

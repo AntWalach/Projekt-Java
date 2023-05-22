@@ -96,8 +96,7 @@ public class CreateFile {
 
         FileWriter write = new FileWriter(checkFileName(fileName), true);
 
-        write.write(plWord + "," + enWord + ",");
-        write.write(System.lineSeparator());
+        write.append(plWord).append(",").append(enWord).append(",");
 
         write.close();
 

@@ -9,7 +9,7 @@ public class CheckInputFileGUI {
 
     public static MenuGUI.Panel filenamePanel;
     public static MenuGUI.Panel checkInputFilePanel;
-    public static JTextArea textArea;
+    //public static JTextArea textArea;
 
     public static void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
 
@@ -59,6 +59,8 @@ public class CheckInputFileGUI {
 
     public static void checkInputFileGUI(){
 
+        JTextArea textArea;
+
         JLabel title=new JLabel();
         title.setText("Check input file");
         //title.setHorizontalTextPosition(JLabel.CENTER);
@@ -75,23 +77,37 @@ public class CheckInputFileGUI {
         textArea.setFont(new Font("Arial",Font.PLAIN,20));
         textArea.setEditable(false);
         textArea.setLineWrap(true);
-        addWordsToTextField();
+        addWordsToTextField(textArea);
         textArea.setCaretPosition(0);
 
         JScrollPane scrollPane=new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBounds(250,200,700,500);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
+        JButton buttonExit=MenuGUI.setButton(50,50,100,50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e-> returnMenu());
+
         checkInputFilePanel=new MenuGUI.Panel();
         checkInputFilePanel.setLayout(null);
         checkInputFilePanel.add(title);
         checkInputFilePanel.add(scrollPane);
+        checkInputFilePanel.add(buttonExit);
 
         MenuGUI.mainFrame.add(checkInputFilePanel);
     }
 
-    public static void addWordsToTextField(){
-        for(int i=0; i<WordList.plWords.size()-1; i++) {
+    public static void returnMenu()
+    {
+        checkInputFilePanel.setVisible(false);
+        MenuGUI.menuPanel.setVisible(true);
+    }
+
+    public static void addWordsToTextField(JTextArea textArea){
+
+        textArea.setText(""); //trzeba naprawic
+
+        for(int i=0; i<WordList.plWords.size(); i++) {
             textArea.append((i+1) + ". " + WordList.plWords.get(i).trim() + " - " + WordList.enWords.get(i).trim() + "\n \n");
         }
     }
