@@ -10,6 +10,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         boolean shouldContinue = true;
+    LoginGUI loginGUI = new LoginGUI();
 
         while (shouldContinue) {
             System.out.println("");
@@ -22,7 +23,7 @@ public class Main {
             System.out.println("4. View content of en/pl arrays");
             System.out.println("5. GAMES!");
             System.out.println("6. Quit");
-            LoginGUI.ILogin();
+            loginGUI.ILogin();
             //MenuGUI.menuGUI();
 
             System.out.print("Type option: ");
