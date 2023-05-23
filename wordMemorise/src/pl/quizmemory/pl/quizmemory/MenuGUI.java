@@ -7,10 +7,10 @@ public class MenuGUI {
 
     static Frame mainFrame;
     static Panel menuPanel;
-    static JButton button1;
-    static JButton button2;
-    static JButton button3;
-    static JButton button4;
+    static JButton buttonCreateDeleteFile;
+    static JButton buttonCheckInputFile;
+    static JButton buttonAddContentToFile;
+    static JButton buttonEditFile;
     static JButton buttonGames;
 
     public static void menuGUI(){
@@ -21,34 +21,41 @@ public class MenuGUI {
         title.setFont(new Font("Arial",Font.PLAIN,40));
         title.setBounds(500,50,400,100);
 
-        button1=setButton(300,250,200,100);
-        button2=setButton(700,250,200,100);
-        button3=setButton(300,400,200,100);
-        button4=setButton(700,400,200,100);
+        buttonCreateDeleteFile =setButton(300,250,200,100);
+        buttonCheckInputFile =setButton(700,250,200,100);
+        buttonAddContentToFile =setButton(300,400,200,100);
+        buttonEditFile =setButton(700,400,200,100);
         buttonGames=setButton(300,550,600,150);
 
-        button1.setText("Create/delete file");
-        button2.setText("Check input file");
-        button3.setText("Add content to a file");
-        button4.setText("View content of en/pl arrays");
+        buttonCreateDeleteFile.setText("Create/delete file");
+        buttonCheckInputFile.setText("Check input file");
+        buttonAddContentToFile.setText("Add content to a file");
+        buttonEditFile.setText("Edit file");
         buttonGames.setText("GAMES!");
 
+        /*
         button1.addActionListener(e-> System.out.println("1"));
         button2.addActionListener(e-> System.out.println("2"));
         button3.addActionListener(e-> System.out.println("3"));
         button4.addActionListener(e-> System.out.println("4"));
         buttonGames.addActionListener(e-> GameChoiceGUI.gamesMenu());
+        */
+        buttonCreateDeleteFile.addActionListener(e-> CreateDeleteFileGUI.choicePanelGUI());
+        buttonCheckInputFile.addActionListener(e-> CheckInputFileGUI.filenameGUI());
+        buttonAddContentToFile.addActionListener(e-> AddContentToFileGUI.filenameGUI());
+        buttonEditFile.addActionListener(e-> EditFileGUI.filenameGUI());
+        buttonGames.addActionListener(e-> FlashcardsGUI.filenameGUI());
 
         menuPanel = new Panel();
 
-        mainFrame = new Frame();
+        mainFrame = new Frame(); //tu mozliwe ze przez to sie rozjezdza po wcisnieciu return, trzeba sprobowac w mainie to wywolac
         mainFrame.setLayout(null);
 
         menuPanel.add(title);
-        menuPanel.add(button1);
-        menuPanel.add(button2);
-        menuPanel.add(button3);
-        menuPanel.add(button4);
+        menuPanel.add(buttonCreateDeleteFile);
+        menuPanel.add(buttonCheckInputFile);
+        menuPanel.add(buttonAddContentToFile);
+        menuPanel.add(buttonEditFile);
         menuPanel.add(buttonGames);
         mainFrame.add(menuPanel);
     }

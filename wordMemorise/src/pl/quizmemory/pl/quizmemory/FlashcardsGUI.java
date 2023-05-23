@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class FlashcardsGUI{
 
-    static Panel flashcardPanel;
-    static Panel filenamePanel;
+    static MenuGUI.Panel flashcardPanel;
+    static MenuGUI.Panel filenamePanel;
     static JButton button1;
     static JButton button2;
     static JButton button3;
@@ -44,7 +44,7 @@ public class FlashcardsGUI{
             }
         });
 
-        filenamePanel=new Panel();
+        filenamePanel=new MenuGUI.Panel();
         filenamePanel.setLayout(null);
         filenamePanel.add(title);
         filenamePanel.add(text1);
@@ -117,7 +117,7 @@ public class FlashcardsGUI{
         buttonCard.addActionListener(e-> FlashcardsGame.flipCard());
         buttonExit.addActionListener(e-> returnMenu());
 
-        flashcardPanel = new Panel();
+        flashcardPanel = new MenuGUI.Panel();
         flashcardPanel.setLayout(null);
         flashcardPanel.add(title);
         flashcardPanel.add(button1);
