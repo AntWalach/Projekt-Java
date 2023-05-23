@@ -44,7 +44,7 @@ public class MenuGUI {
         buttonCheckInputFile.addActionListener(e-> CheckInputFileGUI.filenameGUI());
         buttonAddContentToFile.addActionListener(e-> AddContentToFileGUI.filenameGUI());
         buttonEditFile.addActionListener(e-> EditFileGUI.filenameGUI());
-        buttonGames.addActionListener(e-> FlashcardsGUI.filenameGUI());
+        buttonGames.addActionListener(e-> GameChoiceGUI.gamesMenu());
 
         menuPanel = new Panel();
 
