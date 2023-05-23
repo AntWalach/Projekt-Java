@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserManagement {
+public class UserManagement extends LoginGUI {
 
     private List<User> users;
     private final String dataFilePath = "users.dat";
@@ -25,16 +25,16 @@ public class UserManagement {
         saveData();
     }
 
-    public boolean loginUser(String username, String password) {
+    public void loginUser(String username, String password) {
         for (User user : users) {
             if (user.getLogin().equals(username) && user.getPassword().equals(password)) {
                 System.out.println("Login successful!");
+                success.setText("Login successful!");
                 MenuGUI.menuGUI();
-                return true;
             }
         }
         System.out.println("Invalid username or password!");
-        return false;
+        success.setText("Invalid username or password!");
     }
 
     private void saveData() {

@@ -7,13 +7,61 @@ import java.awt.event.ActionListener;
 
 public class LoginGUI implements ActionListener {
 
-    private static JTextField userText;
+    protected static JTextField userText;
 
-    private static JLabel passwordLabel;
-    private static JPasswordField userPassword;
-    private static JButton loginButton;
-    private static JButton registerButton;
-    private static JLabel success;
+    protected static JLabel passwordLabel;
+    protected static JPasswordField userPassword;
+    protected static JButton loginButton;
+    protected static JButton registerButton;
+    protected static JLabel success;
+
+    public static JTextField getUserText() {
+        return userText;
+    }
+
+    public static void setUserText(JTextField userText) {
+        LoginGUI.userText = userText;
+    }
+
+    public static JLabel getPasswordLabel() {
+        return passwordLabel;
+    }
+
+    public static void setPasswordLabel(JLabel passwordLabel) {
+        LoginGUI.passwordLabel = passwordLabel;
+    }
+
+    public static JPasswordField getUserPassword() {
+        return userPassword;
+    }
+
+    public static void setUserPassword(JPasswordField userPassword) {
+        LoginGUI.userPassword = userPassword;
+    }
+
+    public static JButton getLoginButton() {
+        return loginButton;
+    }
+
+    public static JLabel getSuccess() {
+        return success;
+    }
+
+    public static void setSuccess(JLabel success) {
+        LoginGUI.success = success;
+    }
+
+    public static void setLoginButton(JButton loginButton) {
+        LoginGUI.loginButton = loginButton;
+    }
+
+    public static JButton getRegisterButton() {
+        return registerButton;
+    }
+
+    public static void setRegisterButton(JButton registerButton) {
+        LoginGUI.registerButton = registerButton;
+    }
 
     public void ILogin() {
 
@@ -44,12 +92,12 @@ public class LoginGUI implements ActionListener {
         panel.add(userPassword);
 
         loginButton = new JButton("Login");
-        loginButton.setBounds(640, 430, 80, 25);
+        loginButton.setBounds(560, 440, 80, 25);
         loginButton.addActionListener(new LoginGUI());
         panel.add(loginButton);
 
         registerButton = new JButton("Register");
-        registerButton.setBounds(730, 430, 80, 25);
+        registerButton.setBounds(660, 440, 80, 25);
         registerButton.addActionListener(new LoginGUI());
         panel.add(registerButton);
 
