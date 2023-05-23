@@ -5,15 +5,15 @@ import java.awt.*;
 
 public class MenuGUI {
 
-    static Frame mainFrame;
-    static Panel menuPanel;
-    static JButton buttonCreateDeleteFile;
-    static JButton buttonCheckInputFile;
-    static JButton buttonAddContentToFile;
-    static JButton buttonEditFile;
-    static JButton buttonGames;
+    protected static Frame mainFrame;
+    protected static Panel menuPanel;
+    protected static JButton buttonCreateDeleteFile;
+    protected static JButton buttonCheckInputFile;
+    protected static JButton buttonAddContentToFile;
+    protected static JButton buttonEditFile;
+    protected static JButton buttonGames;
 
-    public static void menuGUI(){
+    public void menuGUI(){
 
         JLabel title=new JLabel();
         title.setText("Word Game");

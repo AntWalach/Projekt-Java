@@ -30,7 +30,9 @@ public class UserManagement extends LoginGUI {
             if (user.getLogin().equals(username) && user.getPassword().equals(password)) {
                 System.out.println("Login successful!");
                 success.setText("Login successful!");
-                MenuGUI.menuGUI();
+
+                MenuGUI menuGUI  = new MenuGUI();
+                menuGUI.menuGUI();
             }
         }
         System.out.println("Invalid username or password!");
