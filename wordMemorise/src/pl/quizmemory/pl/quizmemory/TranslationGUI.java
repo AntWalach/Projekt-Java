@@ -49,6 +49,10 @@ public class TranslationGUI extends CreateFile {
         JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
         buttonFile.setText("Submit");
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(filenamePanel));
+
         JTextField textField = new JTextField();
         textField.setBounds(500, 400, 200, 50);
         textField.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -88,6 +92,7 @@ public class TranslationGUI extends CreateFile {
         filenamePanel.add(ENtoPL);
         filenamePanel.add(textField);
         filenamePanel.add(buttonFile);
+        filenamePanel.add(buttonExit);
 
         GameChoiceGUI.choiceMenu.setVisible(false);
         LoginGUI.mainFrame.add(filenamePanel);
@@ -199,6 +204,11 @@ public class TranslationGUI extends CreateFile {
         answerResult.setFont(new Font("Arial", Font.PLAIN, 30));
         answerResult.setBounds(700, 360, 200, 100);
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(traslationGamePanel));
+
+
         traslationGamePanel = new MenuGUI.Panel();
         traslationGamePanel.setLayout(null);
         traslationGamePanel.add(title);
@@ -206,6 +216,7 @@ public class TranslationGUI extends CreateFile {
         traslationGamePanel.add(answerField);
         traslationGamePanel.add(Score);
         traslationGamePanel.add(answerResult);
+        traslationGamePanel.add(buttonExit);
 
         filenamePanel.setVisible(false);
         LoginGUI.mainFrame.add(traslationGamePanel);

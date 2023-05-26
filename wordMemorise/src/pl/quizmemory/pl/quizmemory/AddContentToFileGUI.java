@@ -87,6 +87,7 @@ public class AddContentToFileGUI extends CreateFile {
         addContentToFilePanel.add(buttonSubmit);
         addContentToFilePanel.add(buttonExit);
 
+        MenuGUI.menuPanel.setVisible(false);
         LoginGUI.mainFrame.add(addContentToFilePanel);
     }
 
