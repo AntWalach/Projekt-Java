@@ -5,13 +5,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class CheckInputFileGUI {
+public class CheckInputFileGUI extends  CreateFile{
 
     public static MenuGUI.Panel filenamePanel;
     public static MenuGUI.Panel checkInputFilePanel;
     //public static JTextArea textArea;
 
-    public static void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
+    CheckInputFileGUI(){
+
+        filenameGUI();
+    }
+
+
+
+
+
+    public  void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
 
         JLabel title=new JLabel();
         title.setText("Check input file");
@@ -57,7 +66,7 @@ public class CheckInputFileGUI {
         MenuGUI.mainFrame.add(filenamePanel);
     }
 
-    public static void checkInputFileGUI(){
+    public  void checkInputFileGUI(){
 
         JTextArea textArea;
 
@@ -97,13 +106,13 @@ public class CheckInputFileGUI {
         MenuGUI.mainFrame.add(checkInputFilePanel);
     }
 
-    public static void returnMenu()
+    public  void returnMenu()
     {
         checkInputFilePanel.setVisible(false);
         MenuGUI.menuPanel.setVisible(true);
     }
 
-    public static void addWordsToTextField(JTextArea textArea){
+    public  void addWordsToTextField(JTextArea textArea){
 
         textArea.setText(""); //trzeba naprawic
 
@@ -111,10 +120,10 @@ public class CheckInputFileGUI {
             textArea.append((i+1) + ". " + WordList.plWords.get(i).trim() + " - " + WordList.enWords.get(i).trim() + "\n \n");
         }
     }
-    public static void addContentToFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public void addContentToFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if(e.getSource()==buttonFile){
             String fileName=textField.getText();
-            WordList.addWordsToListTest(CreateFile.checkFileName(fileName));
+            WordList.addWordsToListTest(this.checkFileName(fileName));
             filenamePanel.setVisible(false);
             checkInputFileGUI();
         }

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class FlashcardsGUI{
+public class FlashcardsGUI extends CreateFile{
 
     static MenuGUI.Panel flashcardPanel;
     static MenuGUI.Panel filenamePanel;
@@ -15,7 +15,11 @@ public class FlashcardsGUI{
     static JButton button4;
     static JButton buttonCard;
 
-    public static void filenameGUI(){
+    FlashcardsGUI(){
+        filenameGUI();
+    }
+
+    public  void filenameGUI(){
 
         JLabel title=new JLabel();
         title.setText("Flashcards");
@@ -55,15 +59,15 @@ public class FlashcardsGUI{
         MenuGUI.mainFrame.add(filenamePanel);
     }
 
-    public static void saveFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public  void saveFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if(e.getSource()==buttonFile){
             String fileName=textField.getText();
-            WordList.addWordsToListTest(CreateFile.checkFileName(fileName));
+            WordList.addWordsToListTest(this.checkFileName(fileName));
             flashcardsGUI();
         }
     }
 
-    public static void flashcardsGUI(){
+    public  void flashcardsGUI(){
 
         JLabel title=new JLabel();
         title.setText("Flashcards");
@@ -131,13 +135,13 @@ public class FlashcardsGUI{
         MenuGUI.mainFrame.add(flashcardPanel);
     }
 
-    public static void returnMenu()
+    public  void returnMenu()
     {
         flashcardPanel.setVisible(false);
         MenuGUI.menuPanel.setVisible(true);
     }
 
-    public static class Panel extends JPanel{
+    public  class Panel extends JPanel{
         Panel() {
             //background color
             this.setBackground(new Color(0, 0, 51));

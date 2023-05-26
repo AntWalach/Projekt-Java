@@ -9,8 +9,10 @@ public class GameChoiceGUI {
     static JButton transGameButton;
     static JButton flashcardsGameButton;
 
-
-    public static void gamesMenu(){
+GameChoiceGUI (){
+    gamesMenu();
+}
+    public  void gamesMenu(){
         JLabel title=new JLabel();
         title.setText("Games");
         title.setForeground(new Color(255,255,255));
@@ -32,8 +34,8 @@ public class GameChoiceGUI {
         flashcardsGameButton.setText("Flashcards game");
         flashcardsGameButton.setFont(new Font("Arial",Font.BOLD,15));
 
-        transGameButton.addActionListener(e-> TranslationGUI.filenameGUI_COPY());
-        flashcardsGameButton.addActionListener(e-> FlashcardsGUI.filenameGUI());
+        transGameButton.addActionListener(e-> {TranslationGUI translationGUI = new TranslationGUI();});
+        flashcardsGameButton.addActionListener(e-> {FlashcardsGUI flashcardsGUI = new FlashcardsGUI();});
 
 
         choiceMenu = new MenuGUI.Panel();

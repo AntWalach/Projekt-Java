@@ -33,18 +33,12 @@ public class MenuGUI {
         buttonEditFile.setText("Edit file");
         buttonGames.setText("GAMES!");
 
-        /*
-        button1.addActionListener(e-> System.out.println("1"));
-        button2.addActionListener(e-> System.out.println("2"));
-        button3.addActionListener(e-> System.out.println("3"));
-        button4.addActionListener(e-> System.out.println("4"));
-        buttonGames.addActionListener(e-> GameChoiceGUI.gamesMenu());
-        */
-        buttonCreateDeleteFile.addActionListener(e-> CreateDeleteFileGUI.choicePanelGUI());
-        buttonCheckInputFile.addActionListener(e-> CheckInputFileGUI.filenameGUI());
-        buttonAddContentToFile.addActionListener(e-> AddContentToFileGUI.filenameGUI());
-        buttonEditFile.addActionListener(e-> EditFileGUI.filenameGUI());
-        buttonGames.addActionListener(e-> GameChoiceGUI.gamesMenu());
+
+        buttonCreateDeleteFile.addActionListener(e-> {CreateDeleteFileGUI createDeleteFileGUI = new CreateDeleteFileGUI();});
+        buttonCheckInputFile.addActionListener(e-> {CheckInputFileGUI checkInputFileGUI = new CheckInputFileGUI();});
+        buttonAddContentToFile.addActionListener(e-> {AddContentToFileGUI addContentToFileGUI = new AddContentToFileGUI();});
+        buttonEditFile.addActionListener(e-> {EditFileGUI editFileGUI = new EditFileGUI();});
+        buttonGames.addActionListener(e->{ GameChoiceGUI gameChoiceGUI = new GameChoiceGUI();});
 
         menuPanel = new Panel();
 

@@ -13,13 +13,18 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-public class AddContentToFileGUI {
+public class AddContentToFileGUI extends  CreateFile{
 
     public static JPanel filenamePanel;
     public static JPanel addContentToFilePanel;
     public static String fileName;
 
-    public static void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
+
+    AddContentToFileGUI(){
+        filenameGUI();
+    }
+
+    public  void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
 
         JLabel title=new JLabel();
         title.setText("Add content to a file");
@@ -64,7 +69,7 @@ public class AddContentToFileGUI {
         MenuGUI.menuPanel.setVisible(false);
         MenuGUI.mainFrame.add(filenamePanel);
     }
-    public static void addContentToFileGUI(){
+    public  void addContentToFileGUI(){
         JLabel title=new JLabel();
         title.setText("Add words");
         //title.setHorizontalTextPosition(JLabel.CENTER);
@@ -131,7 +136,7 @@ public class AddContentToFileGUI {
     }
 
 
-    public static void openFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public  void openFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if(e.getSource()==buttonFile){
             fileName=textField.getText();
             filenamePanel.setVisible(false);
@@ -139,12 +144,12 @@ public class AddContentToFileGUI {
         }
     }
 
-    public static void addContentToFile(ActionEvent e, JTextField textField1, JTextField textField2, JButton button) throws IOException {
+    public void addContentToFile(ActionEvent e, JTextField textField1, JTextField textField2, JButton button) throws IOException {
         if(e.getSource()==button){
             if(!Objects.equals(textField1.getText(), "") && !Objects.equals(textField2.getText(), "")) {
                 String plWord = textField1.getText();
                 String enWord = textField2.getText();
-                CreateFile.addContentToFile(fileName, plWord, enWord);
+                this.addContentToFile(fileName, plWord, enWord);
             }
             textField1.setText(null);
             textField2.setText(null);
@@ -155,12 +160,12 @@ public class AddContentToFileGUI {
         }
     }
 
-    public static void addContentToFileKey(KeyEvent e, JTextField textField1, JTextField textField2) throws IOException {
+    public  void addContentToFileKey(KeyEvent e, JTextField textField1, JTextField textField2) throws IOException {
         if(e.getKeyCode()==KeyEvent.VK_ENTER){
             if(!Objects.equals(textField1.getText(), "") && !Objects.equals(textField2.getText(), "")) {
                 String plWord = textField1.getText();
                 String enWord = textField2.getText();
-                CreateFile.addContentToFile(fileName, plWord, enWord);
+                this.addContentToFile(fileName, plWord, enWord);
             }
             textField1.setText(null);
             textField2.setText(null);

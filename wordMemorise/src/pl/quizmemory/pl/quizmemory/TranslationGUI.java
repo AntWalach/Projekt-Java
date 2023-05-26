@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TranslationGUI {
+public class TranslationGUI extends CreateFile {
 
     static MenuGUI.Panel filenamePanel;
     static MenuGUI.Panel traslationGamePanel;
@@ -29,7 +29,12 @@ public class TranslationGUI {
     static int maxScore = 0;
     static String word;
 
-    public static void filenameGUI_COPY(){
+
+    TranslationGUI(){
+        filenameGUI_COPY();
+    }
+
+    public  void filenameGUI_COPY(){
         //to jest kopia funckji znajdującej się w flashcardsGUI
         //(POTRZEBNA OPTYMALIZACJA!)
         JLabel title=new JLabel();
@@ -92,17 +97,17 @@ public class TranslationGUI {
         MenuGUI.mainFrame.add(filenamePanel);
     }
 
-    public static void saveFile_COPY(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public  void saveFile_COPY(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         //to jest kopia funckji znajdującej się w flashcardsGUI
         //(POTRZEBNA OPTYMALIZACJA!)
         if(e.getSource()==buttonFile){
             String fileName=textField.getText();
-            WordList.addWordsToListTest(CreateFile.checkFileName(fileName));
+            WordList.addWordsToListTest(this.checkFileName(fileName));
             translationGame();
         }
     }
 
-    public static void languageChoice() throws IOException {
+    public  void languageChoice() throws IOException {
 
         //naprawa złego zapisywania do pliku(w tablicy z polskimi słowami przed każdym słowem są białe znaki "\r\n")
         String fixedString = "";
@@ -125,14 +130,14 @@ public class TranslationGUI {
         }
     }
 
-    public static boolean compareTwoWords(String word1, String word2) {
+    public  boolean compareTwoWords(String word1, String word2) {
         if (word1.equals(word2))
             return true;
         else
             return false;
     }
 
-    public static void translationEngine() {
+    public  void translationEngine() {
         if (compareTwoWords(word, AnswerWords.get(answersPointer))){
             LearnWords.remove(answersPointer);
             AnswerWords.remove(answersPointer);
@@ -164,7 +169,7 @@ public class TranslationGUI {
 
 
 
-    public static void translationGame() throws IOException {
+    public  void translationGame() throws IOException {
         answersPointer = 0;
         deletedWords = 0;
         languageChoice();
@@ -221,7 +226,7 @@ public class TranslationGUI {
 
     }
 
-    public static void endScreen() {
+    public  void endScreen() {
         JLabel title=new JLabel();
         title.setText("Session ended");
         title.setForeground(new Color(255,255,255));

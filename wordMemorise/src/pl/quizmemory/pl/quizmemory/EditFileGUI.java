@@ -10,14 +10,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class EditFileGUI {
+public class EditFileGUI extends CreateFile{
 
     public static JPanel filenamePanel;
     public static JPanel editFileContentPanel;
     public static String fileName;
     public static JTextArea changeFileTextArea;
 
-    public static void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
+    EditFileGUI(){
+        filenameGUI();
+    }
+
+    public  void filenameGUI(){ //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
 
         JLabel title=new JLabel();
         title.setText("Add content to a file");
@@ -63,7 +67,7 @@ public class EditFileGUI {
         MenuGUI.mainFrame.add(filenamePanel);
     }
 
-    public static void editContentFileGUI() {
+    public  void editContentFileGUI() {
         JLabel title = new JLabel();
         title.setText("Edit input file");
         title.setForeground(new Color(255, 255, 255));
@@ -107,13 +111,13 @@ public class EditFileGUI {
         MenuGUI.mainFrame.add(editFileContentPanel);
     }
 
-    public static void returnMenu()
+    public  void returnMenu()
     {
         editFileContentPanel.setVisible(false);
         MenuGUI.menuPanel.setVisible(true);
     }
 
-    public static void openFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public  void openFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if(e.getSource()==buttonFile){
             fileName=textField.getText();
             filenamePanel.setVisible(false);
@@ -121,9 +125,9 @@ public class EditFileGUI {
         }
     }
 
-    public static String readFileContent() {
+    public  String readFileContent() {
         try {
-            File file = new File(CreateFile.checkFileName(fileName));
+            File file = new File(this.checkFileName(fileName));
             String filePath = file.getAbsolutePath();
             return new String(Files.readAllBytes(Paths.get(filePath)));
         } catch (IOException e) {
@@ -132,9 +136,9 @@ public class EditFileGUI {
         return "";
     }
 
-    public static void changeText(ActionEvent e, JTextArea textArea, JButton button) throws IOException {
+    public  void changeText(ActionEvent e, JTextArea textArea, JButton button) throws IOException {
         if (e.getSource() == button) {
-            File file = new File(CreateFile.checkFileName(fileName));
+            File file = new File(this.checkFileName(fileName));
             String filePath = file.getAbsolutePath();
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
