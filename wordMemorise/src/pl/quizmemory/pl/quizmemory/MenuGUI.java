@@ -63,6 +63,9 @@ public class MenuGUI {
         menuPanel.add(buttonAddContentToFile);
         menuPanel.add(buttonEditFile);
         menuPanel.add(buttonGames);
+
+        menuPanel.setLayout(null); // Bezpośrednie pozycjonowani
+
         mainFrame.add(menuPanel);
         mainFrame.setVisible(true);
         LoginGUI.panelLogin.setVisible(false);

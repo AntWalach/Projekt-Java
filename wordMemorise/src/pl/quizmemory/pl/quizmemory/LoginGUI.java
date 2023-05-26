@@ -2,10 +2,11 @@ package pl.quizmemory;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginGUI extends MenuGUI.Frame implements ActionListener {
+public class LoginGUI extends MenuGUI implements ActionListener {
 
     protected static MenuGUI.Frame mainFrame;
     protected static  MenuGUI.Panel panelLogin;
