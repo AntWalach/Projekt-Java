@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class WordList {
 
@@ -15,10 +14,10 @@ public class WordList {
 
 
 
+    public static void addWordsToList(String fileName) throws IOException {
 
-
-    public static void addWordsToListTest(String fileName) throws IOException {
-
+        plWords.clear();
+        enWords.clear();
 
         BufferedReader read = new BufferedReader(new FileReader(fileName));
 

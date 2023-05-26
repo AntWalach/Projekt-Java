@@ -62,7 +62,7 @@ public class FlashcardsGUI extends CreateFile {
     public void saveFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
-            WordList.addWordsToListTest(this.checkFileName(fileName));
+            WordList.addWordsToList(this.checkFileName(fileName));
             flashcardsGUI();
         }
     }

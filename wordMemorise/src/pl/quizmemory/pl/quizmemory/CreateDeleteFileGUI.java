@@ -14,8 +14,6 @@ public class CreateDeleteFileGUI extends CreateFile {
 
     CreateDeleteFileGUI() {
         choicePanelGUI();
-
-
     }
 
 
@@ -39,11 +37,16 @@ public class CreateDeleteFileGUI extends CreateFile {
         buttonCreate.addActionListener(e -> createFileGUI());
         buttonDelete.addActionListener(e -> deleteFileGUI());
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(choicePanel));
+
         choicePanel = new MenuGUI.Panel();
         choicePanel.setLayout(null);
         choicePanel.add(title);
         choicePanel.add(buttonCreate);
         choicePanel.add(buttonDelete);
+        choicePanel.add(buttonExit);
 
         MenuGUI.menuPanel.setVisible(false);
         LoginGUI.mainFrame.add(choicePanel);
@@ -71,6 +74,10 @@ public class CreateDeleteFileGUI extends CreateFile {
         JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
         buttonFile.setText("Submit");
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(createPanel));
+
         JTextField textField = new JTextField();
         //textField.setPreferredSize(new Dimension(250,40));
         textField.setBounds(500, 400, 200, 50);
@@ -89,6 +96,7 @@ public class CreateDeleteFileGUI extends CreateFile {
         createPanel.add(text1);
         createPanel.add(textField);
         createPanel.add(buttonFile);
+        createPanel.add(buttonExit);
 
         choicePanel.setVisible(false);
         LoginGUI.mainFrame.add(createPanel);
@@ -116,6 +124,10 @@ public class CreateDeleteFileGUI extends CreateFile {
         JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
         buttonFile.setText("Submit");
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(deletePanel));
+
         JTextField textField = new JTextField();
         //textField.setPreferredSize(new Dimension(250,40));
         textField.setBounds(500, 400, 200, 50);
@@ -134,6 +146,7 @@ public class CreateDeleteFileGUI extends CreateFile {
         deletePanel.add(text1);
         deletePanel.add(textField);
         deletePanel.add(buttonFile);
+        deletePanel.add(buttonExit);
 
         choicePanel.setVisible(false);
         LoginGUI.mainFrame.add(deletePanel);
@@ -155,5 +168,10 @@ public class CreateDeleteFileGUI extends CreateFile {
             deletePanel.setVisible(false);
             MenuGUI.menuPanel.setVisible(true);
         }
+    }
+
+    public void returnMenu(JPanel panel){
+        panel.setVisible(false);
+        MenuGUI.menuPanel.setVisible(true);
     }
 }

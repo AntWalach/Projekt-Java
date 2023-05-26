@@ -9,7 +9,6 @@ public class CheckInputFileGUI extends CreateFile {
 
     private MenuGUI.Panel filenamePanel;
     private MenuGUI.Panel checkInputFilePanel;
-    //public static JTextArea textArea;
 
     CheckInputFileGUI() {
 
@@ -40,6 +39,10 @@ public class CheckInputFileGUI extends CreateFile {
         JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
         buttonFile.setText("Submit");
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(filenamePanel));
+
         JTextField textField = new JTextField();
         //textField.setPreferredSize(new Dimension(250,40));
         textField.setBounds(500, 400, 200, 50);
@@ -58,14 +61,13 @@ public class CheckInputFileGUI extends CreateFile {
         filenamePanel.add(text1);
         filenamePanel.add(textField);
         filenamePanel.add(buttonFile);
+        filenamePanel.add(buttonExit);
 
         MenuGUI.menuPanel.setVisible(false);
         LoginGUI.mainFrame.add(filenamePanel);
     }
 
     public void checkInputFileGUI() {
-
-        JTextArea textArea;
 
         JLabel title = new JLabel();
         title.setText("Check input file");
@@ -77,7 +79,7 @@ public class CheckInputFileGUI extends CreateFile {
         //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500, 50, 300, 100);
 
-        textArea = new JTextArea();
+        JTextArea textArea = new JTextArea();
         textArea.setBackground(new Color(0, 0, 51));
         textArea.setForeground(new Color(255, 255, 255));
         textArea.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -92,7 +94,7 @@ public class CheckInputFileGUI extends CreateFile {
 
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
         buttonExit.setText("Return");
-        buttonExit.addActionListener(e -> returnMenu());
+        buttonExit.addActionListener(e -> returnMenu(checkInputFilePanel));
 
         checkInputFilePanel = new MenuGUI.Panel();
         checkInputFilePanel.setLayout(null);
@@ -103,14 +105,14 @@ public class CheckInputFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(checkInputFilePanel);
     }
 
-    public void returnMenu() {
-        checkInputFilePanel.setVisible(false);
+    public void returnMenu(JPanel panel) {
+        panel.setVisible(false);
         MenuGUI.menuPanel.setVisible(true);
     }
 
     public void addWordsToTextField(JTextArea textArea) {
 
-        textArea.setText(""); //trzeba naprawic
+        textArea.setText("");
 
         for (int i = 0; i < WordList.plWords.size(); i++) {
             textArea.append((i + 1) + ". " + WordList.plWords.get(i).trim() + " - " + WordList.enWords.get(i).trim() + "\n \n");
@@ -120,7 +122,7 @@ public class CheckInputFileGUI extends CreateFile {
     public void addContentToFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
-            WordList.addWordsToListTest(this.checkFileName(fileName));
+            WordList.addWordsToList(this.checkFileName(fileName));
             filenamePanel.setVisible(false);
             checkInputFileGUI();
         }

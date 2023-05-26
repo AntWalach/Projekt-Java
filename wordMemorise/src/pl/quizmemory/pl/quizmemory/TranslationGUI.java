@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class TranslationGUI extends CreateFile {
 
@@ -102,7 +100,7 @@ public class TranslationGUI extends CreateFile {
         //(POTRZEBNA OPTYMALIZACJA!)
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
-            WordList.addWordsToListTest(this.checkFileName(fileName));
+            WordList.addWordsToList(this.checkFileName(fileName));
             translationGame();
         }
     }
@@ -227,7 +225,7 @@ public class TranslationGUI extends CreateFile {
         menuButton.setText("Back to menu");
         menuButton.addActionListener(e -> {
             endScreenPanel.setVisible(false);
-            LoginGUI.mainFrame.add(MenuGUI.menuPanel);
+            MenuGUI.menuPanel.setVisible(true);
         });
 
         JButton resetButton = MenuGUI.setButton(650, 400, 130, 50);

@@ -15,9 +15,9 @@ import java.util.Objects;
 
 public class AddContentToFileGUI extends CreateFile {
 
-    public static JPanel filenamePanel;
-    public static JPanel addContentToFilePanel;
-    public static String fileName;
+    private MenuGUI.Panel filenamePanel;
+    private MenuGUI.Panel addContentToFilePanel;
+    private String fileName;
 
 
     AddContentToFileGUI() {
@@ -47,6 +47,10 @@ public class AddContentToFileGUI extends CreateFile {
         JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
         buttonFile.setText("Submit");
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(filenamePanel));
+
         JTextField textField = new JTextField();
         //textField.setPreferredSize(new Dimension(250,40));
         textField.setBounds(500, 400, 200, 50);
@@ -65,6 +69,7 @@ public class AddContentToFileGUI extends CreateFile {
         filenamePanel.add(text1);
         filenamePanel.add(textField);
         filenamePanel.add(buttonFile);
+        filenamePanel.add(buttonExit);
 
         MenuGUI.menuPanel.setVisible(false);
         LoginGUI.mainFrame.add(filenamePanel);
@@ -123,7 +128,7 @@ public class AddContentToFileGUI extends CreateFile {
 
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
         buttonExit.setText("Return");
-        buttonExit.addActionListener(e -> returnMenu());
+        buttonExit.addActionListener(e -> returnMenu(addContentToFilePanel));
 
         addContentToFilePanel = new MenuGUI.Panel();
         addContentToFilePanel.setLayout(null);
@@ -157,7 +162,6 @@ public class AddContentToFileGUI extends CreateFile {
             textField1.repaint();
             textField2.repaint();
             textField1.requestFocus();
-            addContentToFileGUI();
         }
     }
 
@@ -167,18 +171,17 @@ public class AddContentToFileGUI extends CreateFile {
                 String plWord = textField1.getText();
                 String enWord = textField2.getText();
                 this.addContentToFile(fileName, plWord, enWord);
+                textField1.setText(null);
+                textField2.setText(null);
+                textField1.repaint();
+                textField2.repaint();
+                textField1.requestFocus();
             }
-            textField1.setText(null);
-            textField2.setText(null);
-            textField1.repaint();
-            textField2.repaint();
-            textField1.requestFocus();
-            addContentToFileGUI();
         }
     }
 
-    public static void returnMenu() {
-        addContentToFilePanel.setVisible(false);
+    public void returnMenu(JPanel panel) {
+        panel.setVisible(false);
         MenuGUI.menuPanel.setVisible(true);
     }
 }
