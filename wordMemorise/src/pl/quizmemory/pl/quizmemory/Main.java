@@ -11,7 +11,7 @@ public class Main {
         LoginGUI loginGUI = new LoginGUI();
         MenuGUI menuGUI = new MenuGUI(); //dla testow
 
-        //loginGUI.ILogin();
-        menuGUI.menuGUI(); //dla testow zeby omijac logowanie
+        loginGUI.ILogin();
+       // menuGUI.menuGUI(); //dla testow zeby omijac logowanie
     }
 }

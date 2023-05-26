@@ -5,8 +5,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginGUI implements ActionListener {
+public class LoginGUI extends MenuGUI.Frame implements ActionListener {
 
+    protected static MenuGUI.Frame mainFrame;
+    protected static  MenuGUI.Panel panelLogin;
     protected static JTextField userText;
 
     protected static JLabel passwordLabel;
@@ -66,47 +68,50 @@ public class LoginGUI implements ActionListener {
     public void ILogin() {
 
 
-        JPanel panel = new JPanel();
-        JFrame frame = new JFrame();
-        frame.setSize(1200, 900);
+        panelLogin = new MenuGUI.Panel();
+        //JFrame frame = new MenuGUI.Frame();
+        mainFrame = new MenuGUI.Frame();
+        //mainFrame.setLayout(null);
+        //frame.setSize(1200, 900);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(panel);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.add(panelLogin);
 
-        panel.setLayout(null);
+        panelLogin.setLayout(null);
 
         JLabel label = new JLabel("User");
         label.setBounds(500, 370, 80, 25);
-        panel.add(label);
+        panelLogin.add(label);
 
         userText = new JTextField();
         userText.setBounds(580, 370, 140, 25);
-        panel.add(userText);
+        panelLogin.add(userText);
 
         passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(500, 400, 80, 25);
-        panel.add(passwordLabel);
+        panelLogin.add(passwordLabel);
 
         userPassword = new JPasswordField();
         userPassword.setBounds(580, 400, 140, 25);
-        panel.add(userPassword);
+        panelLogin.add(userPassword);
 
         loginButton = new JButton("Login");
         loginButton.setBounds(560, 440, 80, 25);
         loginButton.addActionListener(new LoginGUI());
-        panel.add(loginButton);
+        panelLogin.add(loginButton);
 
         registerButton = new JButton("Register");
         registerButton.setBounds(660, 440, 80, 25);
         registerButton.addActionListener(new LoginGUI());
-        panel.add(registerButton);
+        panelLogin.add(registerButton);
 
         success = new JLabel("");
         success.setBounds(500, 470, 300, 25);
-        panel.add(success);
+        panelLogin.add(success);
 
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setVisible(true);
+        LoginGUI.mainFrame.add(panelLogin);
     }
 
 
@@ -117,18 +122,11 @@ public class LoginGUI implements ActionListener {
         String password = userPassword.getText();
         if (e.getSource() == loginButton) {
 
-
             userManagement.loginUser(user, password);
-//        if (user.equals("antek") && password.equals("123")) {
-//            success.setText("Login successful!");
-//            MenuGUI.menuGUI();
-//        } else {
-//            success.setText("Invalid username or password");
-//        }
+
         } else if (e.getSource() == registerButton) {
 
             userManagement.registerUser(user, password, false);
-
 
         }
 

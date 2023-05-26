@@ -46,7 +46,7 @@ public class CreateDeleteFileGUI extends CreateFile {
         choicePanel.add(buttonDelete);
 
         MenuGUI.menuPanel.setVisible(false);
-        MenuGUI.mainFrame.add(choicePanel);
+        LoginGUI.mainFrame.add(choicePanel);
     }
 
     public void createFileGUI() {
@@ -91,7 +91,7 @@ public class CreateDeleteFileGUI extends CreateFile {
         createPanel.add(buttonFile);
 
         choicePanel.setVisible(false);
-        MenuGUI.mainFrame.add(createPanel);
+        LoginGUI.mainFrame.add(createPanel);
     }
 
     public void deleteFileGUI() {
@@ -136,7 +136,7 @@ public class CreateDeleteFileGUI extends CreateFile {
         deletePanel.add(buttonFile);
 
         choicePanel.setVisible(false);
-        MenuGUI.mainFrame.add(deletePanel);
+        LoginGUI.mainFrame.add(deletePanel);
     }
 
     public void createFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
