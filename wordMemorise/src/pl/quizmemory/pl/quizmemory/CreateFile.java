@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CreateFile {
 
-    public static void createFile(String name) throws IOException {
+    public void createFile(String name) throws IOException {
         try {
 
             File file = new File(checkFileName(name));
@@ -24,7 +24,7 @@ public class CreateFile {
         }
     }
 
-    public static void deleteFile(String fileName) throws IOException {
+    public void deleteFile(String fileName) throws IOException {
         try {
             //String fileName = nameFile();
             File f = new File(checkFileName(fileName));
@@ -35,7 +35,7 @@ public class CreateFile {
         }
     }
 
-    public static String checkFileName(String name) throws IOException {
+    public String checkFileName(String name) throws IOException {
         if (!name.contains(".txt")) {
             name += ".txt";
         }
@@ -43,7 +43,7 @@ public class CreateFile {
         return name;
     }
 
-    public static String nameFile() throws IOException {
+    public String nameFile() throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Type file name: ");
@@ -51,13 +51,12 @@ public class CreateFile {
         fileName = checkFileName(fileName);
 
 
-
         return fileName;
     }
 
 
     @SuppressWarnings("resource")
-    public static void addContent() throws IOException {
+    public void addContent() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -92,7 +91,7 @@ public class CreateFile {
     }
 
 
-    public static void addContentToFile(String fileName, String plWord, String enWord) throws IOException {
+    public void addContentToFile(String fileName, String plWord, String enWord) throws IOException {
 
         FileWriter write = new FileWriter(checkFileName(fileName), true);
 

@@ -9,31 +9,38 @@ public class GameChoiceGUI {
     static JButton transGameButton;
     static JButton flashcardsGameButton;
 
+    GameChoiceGUI() {
+        gamesMenu();
+    }
 
-    public static void gamesMenu(){
-        JLabel title=new JLabel();
+    public void gamesMenu() {
+        JLabel title = new JLabel();
         title.setText("Games");
-        title.setForeground(new Color(255,255,255));
-        title.setFont(new Font("Arial",Font.PLAIN,40));
-        title.setBounds(520,50,200,100);
+        title.setForeground(new Color(255, 255, 255));
+        title.setFont(new Font("Arial", Font.PLAIN, 40));
+        title.setBounds(520, 50, 200, 100);
 
-        JLabel text1=new JLabel();
+        JLabel text1 = new JLabel();
         text1.setText("Choose game:");
         text1.setHorizontalTextPosition(JLabel.CENTER);
-        text1.setForeground(new Color(255,255,255));
-        text1.setFont(new Font("Arial",Font.PLAIN,25));
-        text1.setBounds(500,250,200,100);
+        text1.setForeground(new Color(255, 255, 255));
+        text1.setFont(new Font("Arial", Font.PLAIN, 25));
+        text1.setBounds(500, 250, 200, 100);
 
-        transGameButton = MenuGUI.setButton(350,370,200,100);
+        transGameButton = MenuGUI.setButton(350, 370, 200, 100);
         transGameButton.setText("Translation game");
-        transGameButton.setFont(new Font("Arial",Font.BOLD,15));
+        transGameButton.setFont(new Font("Arial", Font.BOLD, 15));
 
-        flashcardsGameButton = MenuGUI.setButton(630,370,200,100);
+        flashcardsGameButton = MenuGUI.setButton(630, 370, 200, 100);
         flashcardsGameButton.setText("Flashcards game");
-        flashcardsGameButton.setFont(new Font("Arial",Font.BOLD,15));
+        flashcardsGameButton.setFont(new Font("Arial", Font.BOLD, 15));
 
-        transGameButton.addActionListener(e-> TranslationGUI.filenameGUI_COPY());
-        flashcardsGameButton.addActionListener(e-> FlashcardsGUI.filenameGUI());
+        transGameButton.addActionListener(e -> {
+            TranslationGUI translationGUI = new TranslationGUI();
+        });
+        flashcardsGameButton.addActionListener(e -> {
+            FlashcardsGUI flashcardsGUI = new FlashcardsGUI();
+        });
 
 
         choiceMenu = new MenuGUI.Panel();
@@ -46,7 +53,7 @@ public class GameChoiceGUI {
 
         MenuGUI.menuPanel.setVisible(false);
 
-        MenuGUI.mainFrame.add(choiceMenu);
+        LoginGUI.mainFrame.add(choiceMenu);
     }
 
 }
