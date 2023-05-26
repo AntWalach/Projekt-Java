@@ -9,23 +9,21 @@ import java.util.ArrayList;
 
 public class TranslationGUI extends CreateFile {
 
-    static MenuGUI.Panel filenamePanel;
-    static MenuGUI.Panel traslationGamePanel;
-    static MenuGUI.Panel endScreenPanel;
-    static JRadioButton PLtoEN;
-    static JRadioButton ENtoPL;
-    static JLabel wordToTranslate;
-    static JLabel Score;
-    static JLabel answerResult;
-    static JTextField answerField;
-    static java.util.List<String> LearnWords;
-    static java.util.List<String> AnswerWords;
-
-    static int answersPointer = 0;
-    static int deletedWords = 0;
-
-    static int maxScore = 0;
-    static String word;
+    private MenuGUI.Panel filenamePanel;
+    private MenuGUI.Panel traslationGamePanel;
+    private MenuGUI.Panel endScreenPanel;
+    private JRadioButton PLtoEN;
+    private JRadioButton ENtoPL;
+    private JLabel wordToTranslate;
+    private JLabel Score;
+    private JLabel answerResult;
+    private JTextField answerField;
+    private java.util.List<String> LearnWords;
+    private java.util.List<String> AnswerWords;
+    private int answersPointer = 0;
+    private int deletedWords = 0;
+    private int maxScore = 0;
+    private String word;
 
 
     TranslationGUI() {

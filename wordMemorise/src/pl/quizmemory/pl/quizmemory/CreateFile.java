@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CreateFile {
+public class CreateFile extends FilenameTemplate{
 
     public void createFile(String name) throws IOException {
         try {

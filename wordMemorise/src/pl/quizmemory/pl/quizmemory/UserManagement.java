@@ -1,5 +1,6 @@
 package pl.quizmemory;
 
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class UserManagement extends LoginGUI {
         }
         System.out.println("Invalid username or password!");
         success.setText("Invalid username or password!");
+        success.setForeground(new Color(255, 255, 255));
     }
 
     private void saveData() {

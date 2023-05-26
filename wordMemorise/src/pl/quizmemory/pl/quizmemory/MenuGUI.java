@@ -2,6 +2,7 @@ package pl.quizmemory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 import static pl.quizmemory.LoginGUI.mainFrame;
 
@@ -84,6 +85,28 @@ public class MenuGUI {
             //background color
             this.setBackground(new Color(0, 0, 51));
             this.setBounds(0, 0, 1200, 900);
+        }
+    }
+
+    public static class FilenamePanel extends Panel{
+        FilenamePanel(){
+            JLabel title = new JLabel();
+            title.setText("Check input file");
+            //title.setHorizontalTextPosition(JLabel.CENTER);
+            //title.setVerticalTextPosition(JLabel.TOP);
+            title.setForeground(new Color(255, 255, 255));
+            title.setFont(new Font("Arial", Font.PLAIN, 40));
+            //title.setVerticalAlignment(JLabel.CENTER);
+            //title.setHorizontalAlignment(JLabel.CENTER);
+            title.setBounds(450, 50, 300, 100);
+
+            JLabel text1 = new JLabel();
+            text1.setText("Enter file name:");
+            text1.setHorizontalTextPosition(JLabel.CENTER);
+            //text1.setVerticalTextPosition(JLabel.TOP);
+            text1.setForeground(new Color(255, 255, 255));
+            text1.setFont(new Font("Arial", Font.PLAIN, 25));
+            text1.setBounds(500, 300, 200, 100);
         }
     }
 

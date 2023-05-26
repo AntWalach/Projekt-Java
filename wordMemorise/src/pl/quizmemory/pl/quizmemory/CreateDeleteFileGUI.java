@@ -169,9 +169,4 @@ public class CreateDeleteFileGUI extends CreateFile {
             MenuGUI.menuPanel.setVisible(true);
         }
     }
-
-    public void returnMenu(JPanel panel){
-        panel.setVisible(false);
-        MenuGUI.menuPanel.setVisible(true);
-    }
 }
