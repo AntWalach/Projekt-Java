@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class LoginGUI extends MenuGUI implements ActionListener {
 
     protected static MenuGUI.Frame mainFrame;
-    protected static  MenuGUI.Panel panelLogin;
+    protected static MenuGUI.Panel panelLogin;
     protected static JTextField userText;
 
     protected static JLabel passwordLabel;
