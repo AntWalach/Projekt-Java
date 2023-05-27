@@ -1,8 +1,10 @@
 package pl.quizmemory;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 
 import static pl.quizmemory.LoginGUI.mainFrame;
 
@@ -80,38 +82,25 @@ public class MenuGUI {
         return newButton;
     }
 
+
     public static class Panel extends JPanel {
+
         Panel() {
             //background color
-            this.setBackground(new Color(0, 0, 51));
+            //this.setBackground(new Color(0,0,51));
+            this.setOpaque(false);
             this.setBounds(0, 0, 1200, 900);
-        }
-    }
-
-    public static class FilenamePanel extends Panel{
-        FilenamePanel(){
-            JLabel title = new JLabel();
-            title.setText("Check input file");
-            //title.setHorizontalTextPosition(JLabel.CENTER);
-            //title.setVerticalTextPosition(JLabel.TOP);
-            title.setForeground(new Color(255, 255, 255));
-            title.setFont(new Font("Arial", Font.PLAIN, 40));
-            //title.setVerticalAlignment(JLabel.CENTER);
-            //title.setHorizontalAlignment(JLabel.CENTER);
-            title.setBounds(450, 50, 300, 100);
-
-            JLabel text1 = new JLabel();
-            text1.setText("Enter file name:");
-            text1.setHorizontalTextPosition(JLabel.CENTER);
-            //text1.setVerticalTextPosition(JLabel.TOP);
-            text1.setForeground(new Color(255, 255, 255));
-            text1.setFont(new Font("Arial", Font.PLAIN, 25));
-            text1.setBounds(500, 300, 200, 100);
         }
     }
 
     public static class Frame extends JFrame {
         Frame() {
+
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             //frame basics
             this.setTitle("Word Game");
@@ -125,7 +114,12 @@ public class MenuGUI {
             this.setIconImage(windowIcon.getImage());
 
             //background color
-            this.getContentPane().setBackground(new Color(0, 0, 51));
+            //this.getContentPane().setBackground(new Color(150, 0, 51));
+            try {
+                this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("gradient.png")))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

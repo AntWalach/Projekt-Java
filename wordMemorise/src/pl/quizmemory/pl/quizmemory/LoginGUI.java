@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class LoginGUI extends MenuGUI implements ActionListener {
 
     protected static MenuGUI.Frame mainFrame;
-    protected static  MenuGUI.Panel panelLogin;
+    protected static MenuGUI.Panel panelLogin;
     protected static JTextField userText;
     protected static JLabel passwordLabel;
     protected static JPasswordField userPassword;
@@ -67,7 +67,6 @@ public class LoginGUI extends MenuGUI implements ActionListener {
 
     public void ILogin() {
 
-
         panelLogin = new MenuGUI.Panel();
         //JFrame frame = new MenuGUI.Frame();
         mainFrame = new MenuGUI.Frame();
@@ -80,30 +79,34 @@ public class LoginGUI extends MenuGUI implements ActionListener {
         panelLogin.setLayout(null);
 
         JLabel label = new JLabel("User");
-        label.setBounds(500, 370, 80, 25);
+        label.setBounds(450, 330, 80, 25);
         label.setForeground(new Color(255, 255, 255));
+        label.setFont(new Font("Arial", Font.PLAIN, 20));
         panelLogin.add(label);
 
         userText = new JTextField();
-        userText.setBounds(580, 370, 140, 25);
+        userText.setBounds(580, 320, 180, 40);
+        userText.setFont(new Font("Arial", Font.PLAIN, 20));
         panelLogin.add(userText);
 
         passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(500, 400, 80, 25);
+        passwordLabel.setBounds(450, 380, 150, 25);
         passwordLabel.setForeground(new Color(255, 255, 255));
+        passwordLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         panelLogin.add(passwordLabel);
 
         userPassword = new JPasswordField();
-        userPassword.setBounds(580, 400, 140, 25);
+        userPassword.setBounds(580, 370, 180, 40);
+        userPassword.setFont(new Font("Arial", Font.PLAIN, 20));
         panelLogin.add(userPassword);
 
         loginButton = new JButton("Login");
-        loginButton.setBounds(560, 440, 80, 25);
+        loginButton.setBounds(580, 440, 80, 25);
         loginButton.addActionListener(new LoginGUI());
         panelLogin.add(loginButton);
 
         registerButton = new JButton("Register");
-        registerButton.setBounds(660, 440, 80, 25);
+        registerButton.setBounds(670, 440, 90, 25);
         registerButton.addActionListener(new LoginGUI());
         panelLogin.add(registerButton);
 

@@ -27,7 +27,7 @@ public class CheckInputFileGUI extends CreateFile {
         title.setBounds(500, 50, 300, 100);
 
         JTextArea textArea = new JTextArea();
-        textArea.setBackground(new Color(0, 0, 51));
+        textArea.setOpaque(false);
         textArea.setForeground(new Color(255, 255, 255));
         textArea.setFont(new Font("Arial", Font.PLAIN, 20));
         textArea.setEditable(false);
@@ -38,6 +38,8 @@ public class CheckInputFileGUI extends CreateFile {
         JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setBounds(250, 200, 700, 500);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.getViewport().setOpaque(false);
+        scrollPane.setOpaque(false);
 
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
         buttonExit.setText("Return");

@@ -73,11 +73,13 @@ public class FlashcardsGUI extends CreateFile {
         button3.setIcon(wrongIcon);
         button4.setIcon(correctIcon);
 
-        button1.addActionListener(e -> FlashcardsGame.previousCard());
-        button2.addActionListener(e -> FlashcardsGame.nextCard());
+        FlashcardsGame flashcardsGame = new FlashcardsGame();
+
+        button1.addActionListener(e -> flashcardsGame.previousCard());
+        button2.addActionListener(e -> flashcardsGame.nextCard());
         button3.addActionListener(e -> System.out.println("wrong"));
-        button4.addActionListener(e -> System.out.println("correct"));
-        buttonCard.addActionListener(e -> FlashcardsGame.flipCard());
+        button4.addActionListener(e -> flashcardsGame.learned());
+        buttonCard.addActionListener(e -> flashcardsGame.flipCard());
         buttonExit.addActionListener(e -> returnMenu(flashcardPanel));
 
         flashcardPanel = new MenuGUI.Panel();

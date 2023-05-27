@@ -34,7 +34,7 @@ public class TranslationGUI extends CreateFile {
         //to jest kopia funckji znajdującej się w flashcardsGUI
         //(POTRZEBNA OPTYMALIZACJA!)
         JLabel title = new JLabel();
-        title.setText("Transition Game");
+        title.setText("Translation Game");
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
         title.setBounds(470, 50, 500, 100);
@@ -67,14 +67,14 @@ public class TranslationGUI extends CreateFile {
         /*Ta część jest unikalna tylko dla translation game*/
         PLtoEN = new JRadioButton("Polish - English");
         PLtoEN.setBounds(490, 180, 300, 50);
-        PLtoEN.setBackground(new Color(0, 0, 51));
+        PLtoEN.setOpaque(false);
         PLtoEN.setForeground(new Color(255, 255, 255));
         PLtoEN.setFont(new Font("Arial", Font.PLAIN, 25));
         PLtoEN.setRequestFocusEnabled(false);
         PLtoEN.setSelected(true);
         ENtoPL = new JRadioButton("English - Polish");
         ENtoPL.setBounds(490, 230, 300, 50);
-        ENtoPL.setBackground(new Color(0, 0, 51));
+        ENtoPL.setOpaque(false);
         ENtoPL.setForeground(new Color(255, 255, 255));
         ENtoPL.setFont(new Font("Arial", Font.PLAIN, 25));
         ENtoPL.setRequestFocusEnabled(false);
@@ -169,7 +169,7 @@ public class TranslationGUI extends CreateFile {
         maxScore = LearnWords.size();
 
         JLabel title = new JLabel();
-        title.setText("Transition Game");
+        title.setText("Translation Game");
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
         title.setBounds(470, 50, 500, 100);

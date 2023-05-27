@@ -52,7 +52,6 @@ public class GameChoiceGUI extends FilenameTemplate {
 
         choiceMenu = new MenuGUI.Panel();
         choiceMenu.setLayout(null);
-        choiceMenu.setBackground(new Color(0, 0, 51));
         choiceMenu.add(title);
         choiceMenu.add(text1);
         choiceMenu.add(transGameButton);
