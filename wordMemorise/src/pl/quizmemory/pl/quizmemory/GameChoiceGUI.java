@@ -2,8 +2,9 @@ package pl.quizmemory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
-public class GameChoiceGUI {
+public class GameChoiceGUI extends FilenameTemplate {
 
     static MenuGUI.Panel choiceMenu;
     static JButton transGameButton;
@@ -35,11 +36,17 @@ public class GameChoiceGUI {
         flashcardsGameButton.setText("Flashcards game");
         flashcardsGameButton.setFont(new Font("Arial", Font.BOLD, 15));
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(choiceMenu));
+
+
         transGameButton.addActionListener(e -> {
             TranslationGUI translationGUI = new TranslationGUI();
         });
         flashcardsGameButton.addActionListener(e -> {
             FlashcardsGUI flashcardsGUI = new FlashcardsGUI();
+            GameChoiceGUI.choiceMenu.setVisible(false);
         });
 
 
@@ -50,6 +57,7 @@ public class GameChoiceGUI {
         choiceMenu.add(text1);
         choiceMenu.add(transGameButton);
         choiceMenu.add(flashcardsGameButton);
+        choiceMenu.add(buttonExit);
 
         MenuGUI.menuPanel.setVisible(false);
 

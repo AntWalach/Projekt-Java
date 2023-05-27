@@ -8,7 +8,6 @@ import java.io.IOException;
 public class FlashcardsGUI extends CreateFile {
 
     static MenuGUI.Panel flashcardPanel;
-    static MenuGUI.Panel filenamePanel;
     static JButton button1;
     static JButton button2;
     static JButton button3;
@@ -19,50 +18,10 @@ public class FlashcardsGUI extends CreateFile {
         filenameGUI();
     }
 
-    public void filenameGUI() {
-
-        JLabel title = new JLabel();
-        title.setText("Flashcards");
-        title.setForeground(new Color(255, 255, 255));
-        title.setFont(new Font("Arial", Font.PLAIN, 40));
-        title.setBounds(500, 50, 200, 100);
-
-        JLabel text1 = new JLabel();
-        text1.setText("Enter file name:");
-        text1.setHorizontalTextPosition(JLabel.CENTER);
-        text1.setForeground(new Color(255, 255, 255));
-        text1.setFont(new Font("Arial", Font.PLAIN, 25));
-        text1.setBounds(500, 300, 200, 100);
-
-        JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
-        buttonFile.setText("Submit");
-
-        JTextField textField = new JTextField();
-        textField.setBounds(500, 400, 200, 50);
-        textField.setFont(new Font("Arial", Font.PLAIN, 20));
-        buttonFile.addActionListener(e -> {
-            try {
-                saveFile(e, textField, buttonFile);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
-        filenamePanel = new MenuGUI.Panel();
-        filenamePanel.setLayout(null);
-        filenamePanel.add(title);
-        filenamePanel.add(text1);
-        filenamePanel.add(textField);
-        filenamePanel.add(buttonFile);
-
-        GameChoiceGUI.choiceMenu.setVisible(false);
-        LoginGUI.mainFrame.add(filenamePanel);
-    }
-
-    public void saveFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public void action(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
-            WordList.addWordsToListTest(this.checkFileName(fileName));
+            WordList.addWordsToList(this.checkFileName(fileName));
             flashcardsGUI();
         }
     }
@@ -119,7 +78,7 @@ public class FlashcardsGUI extends CreateFile {
         button3.addActionListener(e -> System.out.println("wrong"));
         button4.addActionListener(e -> System.out.println("correct"));
         buttonCard.addActionListener(e -> FlashcardsGame.flipCard());
-        buttonExit.addActionListener(e -> returnMenu());
+        buttonExit.addActionListener(e -> returnMenu(flashcardPanel));
 
         flashcardPanel = new MenuGUI.Panel();
         flashcardPanel.setLayout(null);
@@ -133,18 +92,5 @@ public class FlashcardsGUI extends CreateFile {
 
         filenamePanel.setVisible(false);
         LoginGUI.mainFrame.add(flashcardPanel);
-    }
-
-    public void returnMenu() {
-        flashcardPanel.setVisible(false);
-        MenuGUI.menuPanel.setVisible(true);
-    }
-
-    public class Panel extends JPanel {
-        Panel() {
-            //background color
-            this.setBackground(new Color(0, 0, 51));
-            this.setBounds(0, 0, 1200, 900);
-        }
     }
 }

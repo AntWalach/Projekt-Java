@@ -11,7 +11,6 @@ public class LoginGUI extends MenuGUI implements ActionListener {
     protected static MenuGUI.Frame mainFrame;
     protected static MenuGUI.Panel panelLogin;
     protected static JTextField userText;
-
     protected static JLabel passwordLabel;
     protected static JPasswordField userPassword;
     protected static JButton loginButton;
@@ -82,6 +81,7 @@ public class LoginGUI extends MenuGUI implements ActionListener {
 
         JLabel label = new JLabel("User");
         label.setBounds(500, 370, 80, 25);
+        label.setForeground(new Color(255, 255, 255));
         panelLogin.add(label);
 
         userText = new JTextField();
@@ -90,6 +90,7 @@ public class LoginGUI extends MenuGUI implements ActionListener {
 
         passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(500, 400, 80, 25);
+        passwordLabel.setForeground(new Color(255, 255, 255));
         panelLogin.add(passwordLabel);
 
         userPassword = new JPasswordField();

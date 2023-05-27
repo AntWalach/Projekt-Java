@@ -6,28 +6,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class TranslationGUI extends CreateFile {
 
-    static MenuGUI.Panel filenamePanel;
-    static MenuGUI.Panel traslationGamePanel;
-    static MenuGUI.Panel endScreenPanel;
-    static JRadioButton PLtoEN;
-    static JRadioButton ENtoPL;
-    static JLabel wordToTranslate;
-    static JLabel Score;
-    static JLabel answerResult;
-    static JTextField answerField;
-    static java.util.List<String> LearnWords;
-    static java.util.List<String> AnswerWords;
-
-    static int answersPointer = 0;
-    static int deletedWords = 0;
-
-    static int maxScore = 0;
-    static String word;
+    private MenuGUI.Panel filenamePanel;
+    private MenuGUI.Panel traslationGamePanel;
+    private MenuGUI.Panel endScreenPanel;
+    private JRadioButton PLtoEN;
+    private JRadioButton ENtoPL;
+    private JLabel wordToTranslate;
+    private JLabel Score;
+    private JLabel answerResult;
+    private JTextField answerField;
+    private java.util.List<String> LearnWords;
+    private java.util.List<String> AnswerWords;
+    private int answersPointer = 0;
+    private int deletedWords = 0;
+    private int maxScore = 0;
+    private String word;
 
 
     TranslationGUI() {
@@ -52,6 +48,10 @@ public class TranslationGUI extends CreateFile {
 
         JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
         buttonFile.setText("Submit");
+
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(filenamePanel));
 
         JTextField textField = new JTextField();
         textField.setBounds(500, 400, 200, 50);
@@ -92,6 +92,7 @@ public class TranslationGUI extends CreateFile {
         filenamePanel.add(ENtoPL);
         filenamePanel.add(textField);
         filenamePanel.add(buttonFile);
+        filenamePanel.add(buttonExit);
 
         GameChoiceGUI.choiceMenu.setVisible(false);
         LoginGUI.mainFrame.add(filenamePanel);
@@ -102,7 +103,7 @@ public class TranslationGUI extends CreateFile {
         //(POTRZEBNA OPTYMALIZACJA!)
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
-            WordList.addWordsToListTest(this.checkFileName(fileName));
+            WordList.addWordsToList(this.checkFileName(fileName));
             translationGame();
         }
     }
@@ -203,6 +204,11 @@ public class TranslationGUI extends CreateFile {
         answerResult.setFont(new Font("Arial", Font.PLAIN, 30));
         answerResult.setBounds(700, 360, 200, 100);
 
+        JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
+        buttonExit.setText("Return");
+        buttonExit.addActionListener(e -> returnMenu(traslationGamePanel));
+
+
         traslationGamePanel = new MenuGUI.Panel();
         traslationGamePanel.setLayout(null);
         traslationGamePanel.add(title);
@@ -210,6 +216,7 @@ public class TranslationGUI extends CreateFile {
         traslationGamePanel.add(answerField);
         traslationGamePanel.add(Score);
         traslationGamePanel.add(answerResult);
+        traslationGamePanel.add(buttonExit);
 
         filenamePanel.setVisible(false);
         LoginGUI.mainFrame.add(traslationGamePanel);
@@ -227,7 +234,7 @@ public class TranslationGUI extends CreateFile {
         menuButton.setText("Back to menu");
         menuButton.addActionListener(e -> {
             endScreenPanel.setVisible(false);
-            LoginGUI.mainFrame.add(MenuGUI.menuPanel);
+            MenuGUI.menuPanel.setVisible(true);
         });
 
         JButton resetButton = MenuGUI.setButton(650, 400, 130, 50);

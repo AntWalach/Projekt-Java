@@ -15,60 +15,14 @@ import java.util.Objects;
 
 public class AddContentToFileGUI extends CreateFile {
 
-    public static JPanel filenamePanel;
-    public static JPanel addContentToFilePanel;
-    public static String fileName;
+    private MenuGUI.Panel addContentToFilePanel;
+    private String fileName;
 
 
     AddContentToFileGUI() {
         filenameGUI();
     }
 
-    public void filenameGUI() { //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
-
-        JLabel title = new JLabel();
-        title.setText("Add content to a file");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
-        title.setForeground(new Color(255, 255, 255));
-        title.setFont(new Font("Arial", Font.PLAIN, 40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
-        title.setBounds(450, 50, 400, 100);
-
-        JLabel text1 = new JLabel();
-        text1.setText("Enter file name:");
-        text1.setHorizontalTextPosition(JLabel.CENTER);
-        //text1.setVerticalTextPosition(JLabel.TOP);
-        text1.setForeground(new Color(255, 255, 255));
-        text1.setFont(new Font("Arial", Font.PLAIN, 25));
-        text1.setBounds(500, 300, 200, 100);
-
-        JButton buttonFile = MenuGUI.setButton(550, 500, 100, 50);
-        buttonFile.setText("Submit");
-
-        JTextField textField = new JTextField();
-        //textField.setPreferredSize(new Dimension(250,40));
-        textField.setBounds(500, 400, 200, 50);
-        textField.setFont(new Font("Arial", Font.PLAIN, 20));
-        buttonFile.addActionListener(e -> {
-            try {
-                openFile(e, textField, buttonFile);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
-        filenamePanel = new MenuGUI.Panel();
-        filenamePanel.setLayout(null);
-        filenamePanel.add(title);
-        filenamePanel.add(text1);
-        filenamePanel.add(textField);
-        filenamePanel.add(buttonFile);
-
-        MenuGUI.menuPanel.setVisible(false);
-        LoginGUI.mainFrame.add(filenamePanel);
-    }
 
     public void addContentToFileGUI() {
         JLabel title = new JLabel();
@@ -123,7 +77,7 @@ public class AddContentToFileGUI extends CreateFile {
 
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
         buttonExit.setText("Return");
-        buttonExit.addActionListener(e -> returnMenu());
+        buttonExit.addActionListener(e -> returnMenu(addContentToFilePanel));
 
         addContentToFilePanel = new MenuGUI.Panel();
         addContentToFilePanel.setLayout(null);
@@ -133,11 +87,12 @@ public class AddContentToFileGUI extends CreateFile {
         addContentToFilePanel.add(buttonSubmit);
         addContentToFilePanel.add(buttonExit);
 
+        MenuGUI.menuPanel.setVisible(false);
         LoginGUI.mainFrame.add(addContentToFilePanel);
     }
 
 
-    public void openFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public void action(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             fileName = textField.getText();
             filenamePanel.setVisible(false);
@@ -157,7 +112,6 @@ public class AddContentToFileGUI extends CreateFile {
             textField1.repaint();
             textField2.repaint();
             textField1.requestFocus();
-            addContentToFileGUI();
         }
     }
 
@@ -167,18 +121,12 @@ public class AddContentToFileGUI extends CreateFile {
                 String plWord = textField1.getText();
                 String enWord = textField2.getText();
                 this.addContentToFile(fileName, plWord, enWord);
+                textField1.setText(null);
+                textField2.setText(null);
+                textField1.repaint();
+                textField2.repaint();
+                textField1.requestFocus();
             }
-            textField1.setText(null);
-            textField2.setText(null);
-            textField1.repaint();
-            textField2.repaint();
-            textField1.requestFocus();
-            addContentToFileGUI();
         }
-    }
-
-    public static void returnMenu() {
-        addContentToFilePanel.setVisible(false);
-        MenuGUI.menuPanel.setVisible(true);
     }
 }
