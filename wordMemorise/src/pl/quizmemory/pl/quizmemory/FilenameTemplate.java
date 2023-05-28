@@ -9,17 +9,17 @@ public class FilenameTemplate  {
 
     protected MenuGUI.Panel filenamePanel;
 
-    public void filenameGUI() { //moze da sie to zrobic tak zeby tworzyc znowu takiej funkcji tylko uzyc jej z innej klasy
+    public void filenameGUI() {
 
         JLabel title = new JLabel();
-        title.setText("Check input file");
+        title.setText("Choose file");
         //title.setHorizontalTextPosition(JLabel.CENTER);
         //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
         //title.setVerticalAlignment(JLabel.CENTER);
         //title.setHorizontalAlignment(JLabel.CENTER);
-        title.setBounds(450, 50, 300, 100);
+        title.setBounds(500, 50, 300, 100);
 
         JLabel text1 = new JLabel();
         text1.setText("Enter file name:");

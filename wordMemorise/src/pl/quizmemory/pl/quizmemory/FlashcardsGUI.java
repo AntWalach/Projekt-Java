@@ -11,7 +11,6 @@ public class FlashcardsGUI extends CreateFile {
     static JButton button1;
     static JButton button2;
     static JButton button3;
-    static JButton button4;
     static JButton buttonCard;
 
     FlashcardsGUI() {
@@ -40,13 +39,13 @@ public class FlashcardsGUI extends CreateFile {
 
         button1 = MenuGUI.setButton(150, 400, 100, 50);
         button2 = MenuGUI.setButton(950, 400, 100, 50);
-        button3 = MenuGUI.setButton(450, 700, 100, 50);
-        button4 = MenuGUI.setButton(650, 700, 100, 50);
+        //button3 = MenuGUI.setButton(450, 700, 100, 50);
+        button3 = MenuGUI.setButton(475, 700, 250, 50);
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
 
 
         buttonCard = MenuGUI.setButton(350, 200, 500, 450);
-        buttonCard.setText("Click to start");
+        buttonCard.setText("Click to flip card");
         buttonCard.setFont(new Font("Arial", Font.BOLD, 30));
 
         buttonExit.setText("Return");
@@ -54,7 +53,6 @@ public class FlashcardsGUI extends CreateFile {
         ImageIcon arrowLeft = new ImageIcon("arrowLeft.png");
         ImageIcon arrowRight = new ImageIcon("arrowRight.png");
         ImageIcon correctIcon = new ImageIcon("correctIcon.png");
-        ImageIcon wrongIcon = new ImageIcon("wrongIcon.png");
         //resizing icons
         Image image1 = arrowLeft.getImage();
         Image newimage1 = image1.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
@@ -62,23 +60,20 @@ public class FlashcardsGUI extends CreateFile {
         Image image2 = arrowRight.getImage();
         Image newimage2 = image2.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
         arrowRight = new ImageIcon(newimage2);
-        Image image3 = wrongIcon.getImage();
-        Image newimage3 = image3.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
-        wrongIcon = new ImageIcon(newimage3);
         Image image4 = correctIcon.getImage();
         Image newimage4 = image4.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
         correctIcon = new ImageIcon(newimage4);
         button1.setIcon(arrowLeft);
         button2.setIcon(arrowRight);
-        button3.setIcon(wrongIcon);
-        button4.setIcon(correctIcon);
+        button3.setIcon(correctIcon);
+        button3.setText("Learned");
+        button3.setFont(new Font("Arial",Font.PLAIN,20));
 
         FlashcardsGame flashcardsGame = new FlashcardsGame();
 
         button1.addActionListener(e -> flashcardsGame.previousCard());
         button2.addActionListener(e -> flashcardsGame.nextCard());
-        button3.addActionListener(e -> System.out.println("wrong"));
-        button4.addActionListener(e -> flashcardsGame.learned());
+        button3.addActionListener(e -> flashcardsGame.learned());
         buttonCard.addActionListener(e -> flashcardsGame.flipCard());
         buttonExit.addActionListener(e -> returnMenu(flashcardPanel));
 
@@ -88,7 +83,6 @@ public class FlashcardsGUI extends CreateFile {
         flashcardPanel.add(button1);
         flashcardPanel.add(button2);
         flashcardPanel.add(button3);
-        flashcardPanel.add(button4);
         flashcardPanel.add(buttonCard);
         flashcardPanel.add(buttonExit);
 
