@@ -9,7 +9,6 @@ public class CheckInputFileGUI extends CreateFile {
     private MenuGUI.Panel checkInputFilePanel;
 
     CheckInputFileGUI() {
-
         filenameGUI();
     }
 

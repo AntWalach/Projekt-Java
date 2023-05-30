@@ -11,9 +11,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class EditFileGUI extends CreateFile {
-    public static MenuGUI.Panel editFileContentPanel;
-    public static String fileName;
-    public static JTextArea changeFileTextArea;
+    private MenuGUI.Panel editFileContentPanel;
+    private String fileName;
+    private JTextArea changeFileTextArea;
 
     EditFileGUI() {
         filenameGUI();
@@ -63,7 +63,7 @@ public class EditFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(editFileContentPanel);
     }
 
-    public void action(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public void action(ActionEvent e, JTextField textField, JButton buttonFile) {
         if (e.getSource() == buttonFile) {
             fileName = textField.getText();
             filenamePanel.setVisible(false);

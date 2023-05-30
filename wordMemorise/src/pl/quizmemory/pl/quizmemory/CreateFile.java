@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class CreateFile extends FilenameTemplate{
 
-    public void createFile(String name) throws IOException {
+    public void createFile(String name) {
         try {
             File file = new File(checkFileName(name));
 
@@ -21,7 +21,7 @@ public class CreateFile extends FilenameTemplate{
         }
     }
 
-    public void deleteFile(String fileName) throws IOException {
+    public void deleteFile(String fileName) {
         try {
             //String fileName = nameFile();
             File f = new File(checkFileName(fileName));

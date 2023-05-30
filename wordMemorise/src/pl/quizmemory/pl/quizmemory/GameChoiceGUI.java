@@ -4,9 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameChoiceGUI extends FilenameTemplate {
-    static MenuGUI.Panel choiceMenu;
-    static JButton transGameButton;
-    static JButton flashcardsGameButton;
+    protected static MenuGUI.Panel choiceMenu;
 
     GameChoiceGUI() {
         gamesMenu();
@@ -26,11 +24,11 @@ public class GameChoiceGUI extends FilenameTemplate {
         text1.setFont(new Font("Arial", Font.PLAIN, 25));
         text1.setBounds(500, 250, 200, 100);
 
-        transGameButton = MenuGUI.setButton(350, 370, 200, 100);
+        JButton transGameButton = MenuGUI.setButton(350, 370, 200, 100);
         transGameButton.setText("Translation game");
         transGameButton.setFont(new Font("Arial", Font.BOLD, 15));
 
-        flashcardsGameButton = MenuGUI.setButton(630, 370, 200, 100);
+        JButton flashcardsGameButton = MenuGUI.setButton(630, 370, 200, 100);
         flashcardsGameButton.setText("Flashcards game");
         flashcardsGameButton.setFont(new Font("Arial", Font.BOLD, 15));
 

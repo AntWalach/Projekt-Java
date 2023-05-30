@@ -6,11 +6,8 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class FlashcardsGUI extends CreateFile {
-    static MenuGUI.Panel flashcardPanel;
-    static JButton button1;
-    static JButton button2;
-    static JButton button3;
-    static JButton buttonCard;
+    private MenuGUI.Panel flashcardPanel;
+    protected static JButton buttonCard;
 
     FlashcardsGUI() {
         filenameGUI();
@@ -32,9 +29,9 @@ public class FlashcardsGUI extends CreateFile {
         title.setFont(new Font("Arial", Font.PLAIN, 40));
         title.setBounds(500, 50, 200, 100);
 
-        button1 = MenuGUI.setButton(150, 400, 100, 50);
-        button2 = MenuGUI.setButton(950, 400, 100, 50);
-        button3 = MenuGUI.setButton(475, 700, 250, 50);
+        JButton button1 = MenuGUI.setButton(150, 400, 100, 50);
+        JButton button2 = MenuGUI.setButton(950, 400, 100, 50);
+        JButton button3 = MenuGUI.setButton(475, 700, 250, 50);
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
 
         buttonCard = MenuGUI.setButton(350, 200, 500, 450);

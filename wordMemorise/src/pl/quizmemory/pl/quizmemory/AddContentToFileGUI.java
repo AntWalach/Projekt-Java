@@ -19,12 +19,8 @@ public class AddContentToFileGUI extends CreateFile {
     public void addContentToFileGUI() {
         JLabel title = new JLabel();
         title.setText("Add words");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500, 50, 300, 100);
 
         JButton buttonSubmit = MenuGUI.setButton(550, 500, 100, 50);
