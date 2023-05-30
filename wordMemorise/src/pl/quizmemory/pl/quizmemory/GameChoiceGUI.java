@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class GameChoiceGUI extends FilenameTemplate {
     static MenuGUI.Panel choiceMenu;
+
     static JButton transGameButton;
     static JButton flashcardsGameButton;
 

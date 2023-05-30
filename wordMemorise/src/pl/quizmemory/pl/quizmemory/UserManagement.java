@@ -10,7 +10,7 @@ public class UserManagement extends LoginGUI {
     private List<User> users;
     private final String dataFilePath = "users.dat";
 
-     UserManagement() {
+    UserManagement() {
         users = new ArrayList<>();
         loadData();
     }
@@ -32,7 +32,7 @@ public class UserManagement extends LoginGUI {
                 System.out.println("Login successful!");
                 success.setText("Login successful!");
 
-                MenuGUI menuGUI  = new MenuGUI();
+                MenuGUI menuGUI = new MenuGUI();
                 menuGUI.menuGUI();
             }
         }
