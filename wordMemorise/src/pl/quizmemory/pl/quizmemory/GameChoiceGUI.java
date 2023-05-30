@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class GameChoiceGUI extends FilenameTemplate {
 
-    static MenuGUI.Panel choiceMenu;
+    static MenuGUI .Panel choiceMenu;
     static JButton transGameButton;
     static JButton flashcardsGameButton;
 

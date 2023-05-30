@@ -13,16 +13,11 @@ public class WordList {
     public static List<String> enWords = new ArrayList<String>();
 
 
-//<<<<<<< HEAD
-//    public static void addWordsToListTest(String fileName) throws IOException {
-//
-//=======
-
     public static void addWordsToList(String fileName) throws IOException {
 
         plWords.clear();
         enWords.clear();
-//>>>>>>> main
+
 
         BufferedReader read = new BufferedReader(new FileReader(fileName));
 
