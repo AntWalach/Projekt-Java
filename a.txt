@@ -1,6 +1,0 @@
-
-jeden,one,
-dwa,two,
-trzy,three,
-cztery,four,
-piec,five,

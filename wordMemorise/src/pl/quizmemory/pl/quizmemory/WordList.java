@@ -7,12 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WordList {
-
-
     public static List<String> plWords = new ArrayList<String>();
     public static List<String> enWords = new ArrayList<String>();
-
-
 
     public static void addWordsToList(String fileName) throws IOException {
 
@@ -46,7 +42,6 @@ public class WordList {
             }
         }
 
-
         if (word1.length() > 0) {
             plWords.add(word1.toString());
 
@@ -55,13 +50,8 @@ public class WordList {
         if (word2.length() > 0) {
             enWords.add(word2.toString());
         }
-
-
-
         read.close();
     }
-
-
 }
 
 

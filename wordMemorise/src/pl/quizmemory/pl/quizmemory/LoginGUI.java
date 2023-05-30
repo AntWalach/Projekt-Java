@@ -1,6 +1,5 @@
 package pl.quizmemory;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -68,10 +67,7 @@ public class LoginGUI extends MenuGUI implements ActionListener {
     public void ILogin() {
 
         panelLogin = new MenuGUI.Panel();
-        //JFrame frame = new MenuGUI.Frame();
         mainFrame = new MenuGUI.Frame();
-        //mainFrame.setLayout(null);
-        //frame.setSize(1200, 900);
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.add(panelLogin);
@@ -119,21 +115,15 @@ public class LoginGUI extends MenuGUI implements ActionListener {
         LoginGUI.mainFrame.add(panelLogin);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         UserManagement userManagement = new UserManagement();
         String user = userText.getText();
         String password = userPassword.getText();
         if (e.getSource() == loginButton) {
-
             userManagement.loginUser(user, password);
-
         } else if (e.getSource() == registerButton) {
-
             userManagement.registerUser(user, password, false);
-
         }
-
     }
 }

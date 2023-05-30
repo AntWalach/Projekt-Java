@@ -1,13 +1,9 @@
 package pl.quizmemory;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FlashcardsGame {
-
     static int currentIndex = 0;
     static boolean changeLanguage = true;
 

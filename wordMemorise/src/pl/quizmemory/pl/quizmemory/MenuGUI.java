@@ -9,8 +9,6 @@ import java.io.IOException;
 import static pl.quizmemory.LoginGUI.mainFrame;
 
 public class MenuGUI {
-
-    //protected static Frame mainFrame;
     protected static Panel menuPanel;
     protected static JButton buttonCreateDeleteFile;
     protected static JButton buttonCheckInputFile;
@@ -19,7 +17,6 @@ public class MenuGUI {
     protected static JButton buttonGames;
 
     public void menuGUI() {
-
         JLabel title = new JLabel();
         title.setText("Word Game");
         title.setForeground(new Color(255, 255, 255));
@@ -37,7 +34,6 @@ public class MenuGUI {
         buttonAddContentToFile.setText("Add content to a file");
         buttonEditFile.setText("Edit file");
         buttonGames.setText("GAMES!");
-
 
         buttonCreateDeleteFile.addActionListener(e -> {
             CreateDeleteFileGUI createDeleteFileGUI = new CreateDeleteFileGUI();
@@ -57,7 +53,6 @@ public class MenuGUI {
 
         menuPanel = new Panel();
 
-        //mainFrame = new Frame(); //tu mozliwe ze przez to sie rozjezdza po wcisnieciu return, trzeba sprobowac w mainie to wywolac
         mainFrame.setLayout(null);
 
         menuPanel.add(title);
@@ -67,7 +62,7 @@ public class MenuGUI {
         menuPanel.add(buttonEditFile);
         menuPanel.add(buttonGames);
 
-        menuPanel.setLayout(null); // Bezpośrednie pozycjonowani
+        menuPanel.setLayout(null);
 
         mainFrame.add(menuPanel);
         mainFrame.setVisible(true);
@@ -84,10 +79,8 @@ public class MenuGUI {
 
 
     public static class Panel extends JPanel {
-
         Panel() {
             //background color
-            //this.setBackground(new Color(0,0,51));
             this.setOpaque(false);
             this.setBounds(0, 0, 1200, 900);
         }
@@ -95,8 +88,8 @@ public class MenuGUI {
 
     public static class Frame extends JFrame {
         Frame() {
-
             try {
+                //UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -107,14 +100,12 @@ public class MenuGUI {
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setResizable(false); //optional
             this.setSize(1200, 900);
-            //this.setVisible(true);
 
             //icon
             ImageIcon windowIcon = new ImageIcon("w.png");
             this.setIconImage(windowIcon.getImage());
 
             //background color
-            //this.getContentPane().setBackground(new Color(150, 0, 51));
             try {
                 this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("gradient.png")))));
             } catch (IOException e) {

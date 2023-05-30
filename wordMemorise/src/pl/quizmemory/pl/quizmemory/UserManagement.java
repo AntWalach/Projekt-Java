@@ -67,5 +67,4 @@ public class UserManagement extends LoginGUI {
             e.printStackTrace();
         }
     }
-
 }

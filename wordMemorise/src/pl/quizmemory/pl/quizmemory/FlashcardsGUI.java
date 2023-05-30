@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class FlashcardsGUI extends CreateFile {
-
     static MenuGUI.Panel flashcardPanel;
     static JButton button1;
     static JButton button2;
@@ -29,20 +28,14 @@ public class FlashcardsGUI extends CreateFile {
 
         JLabel title = new JLabel();
         title.setText("Flashcards");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500, 50, 200, 100);
 
         button1 = MenuGUI.setButton(150, 400, 100, 50);
         button2 = MenuGUI.setButton(950, 400, 100, 50);
-        //button3 = MenuGUI.setButton(450, 700, 100, 50);
         button3 = MenuGUI.setButton(475, 700, 250, 50);
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
-
 
         buttonCard = MenuGUI.setButton(350, 200, 500, 450);
         buttonCard.setText("Click to flip card");

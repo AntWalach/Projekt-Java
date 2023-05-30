@@ -25,14 +25,11 @@ public class TranslationGUI extends CreateFile {
     private int maxScore = 0;
     private String word;
 
-
     TranslationGUI() {
         filenameGUI_COPY();
     }
 
     public void filenameGUI_COPY() {
-        //to jest kopia funckji znajdującej się w flashcardsGUI
-        //(POTRZEBNA OPTYMALIZACJA!)
         JLabel title = new JLabel();
         title.setText("Translation Game");
         title.setForeground(new Color(255, 255, 255));
@@ -64,7 +61,6 @@ public class TranslationGUI extends CreateFile {
             }
         });
 
-        /*Ta część jest unikalna tylko dla translation game*/
         PLtoEN = new JRadioButton("Polish - English");
         PLtoEN.setBounds(490, 180, 300, 50);
         PLtoEN.setOpaque(false);
@@ -83,7 +79,6 @@ public class TranslationGUI extends CreateFile {
         group.add(PLtoEN);
         group.add(ENtoPL);
 
-
         filenamePanel = new MenuGUI.Panel();
         filenamePanel.setLayout(null);
         filenamePanel.add(title);
@@ -99,8 +94,6 @@ public class TranslationGUI extends CreateFile {
     }
 
     public void saveFile_COPY(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
-        //to jest kopia funckji znajdującej się w flashcardsGUI
-        //(POTRZEBNA OPTYMALIZACJA!)
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
             WordList.addWordsToList(this.checkFileName(fileName));
@@ -109,8 +102,6 @@ public class TranslationGUI extends CreateFile {
     }
 
     public void languageChoice() throws IOException {
-
-        //naprawa złego zapisywania do pliku(w tablicy z polskimi słowami przed każdym słowem są białe znaki "\r\n")
         String fixedString = "";
         for (int i = 0; i < WordList.plWords.size(); i++) {
             fixedString = WordList.plWords.get(i);

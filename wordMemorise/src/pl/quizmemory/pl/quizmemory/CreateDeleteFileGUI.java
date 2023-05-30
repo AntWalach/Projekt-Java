@@ -6,28 +6,20 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class CreateDeleteFileGUI extends CreateFile {
-
     public static MenuGUI.Panel choicePanel;
     public static MenuGUI.Panel createPanel;
     public static MenuGUI.Panel deletePanel;
-
 
     CreateDeleteFileGUI() {
         choicePanelGUI();
     }
 
-
     public void choicePanelGUI() {
         JLabel title = new JLabel();
         title.setText("Choose option");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
-        //title.setVerticalAlignment(SwingConstants.CENTER);
-        //title.setHorizontalAlignment(SwingConstants.CENTER);
         title.setBounds(500, 50, 300, 100);
-
 
         JButton buttonCreate = MenuGUI.setButton(500, 300, 200, 100);
         JButton buttonDelete = MenuGUI.setButton(500, 500, 200, 100);
@@ -55,18 +47,13 @@ public class CreateDeleteFileGUI extends CreateFile {
     public void createFileGUI() {
         JLabel title = new JLabel();
         title.setText("Create file");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500, 50, 200, 100);
 
         JLabel text1 = new JLabel();
         text1.setText("Enter file name:");
         text1.setHorizontalTextPosition(JLabel.CENTER);
-        //text1.setVerticalTextPosition(JLabel.TOP);
         text1.setForeground(new Color(255, 255, 255));
         text1.setFont(new Font("Arial", Font.PLAIN, 25));
         text1.setBounds(500, 300, 200, 100);
@@ -79,7 +66,6 @@ public class CreateDeleteFileGUI extends CreateFile {
         buttonExit.addActionListener(e -> returnMenu(createPanel));
 
         JTextField textField = new JTextField();
-        //textField.setPreferredSize(new Dimension(250,40));
         textField.setBounds(500, 400, 200, 50);
         textField.setFont(new Font("Arial", Font.PLAIN, 20));
         buttonFile.addActionListener(e -> {
@@ -105,18 +91,13 @@ public class CreateDeleteFileGUI extends CreateFile {
     public void deleteFileGUI() {
         JLabel title = new JLabel();
         title.setText("Delete file");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500, 50, 200, 100);
 
         JLabel text1 = new JLabel();
         text1.setText("Enter file name:");
         text1.setHorizontalTextPosition(JLabel.CENTER);
-        //text1.setVerticalTextPosition(JLabel.TOP);
         text1.setForeground(new Color(255, 255, 255));
         text1.setFont(new Font("Arial", Font.PLAIN, 25));
         text1.setBounds(500, 300, 200, 100);
@@ -129,7 +110,6 @@ public class CreateDeleteFileGUI extends CreateFile {
         buttonExit.addActionListener(e -> returnMenu(deletePanel));
 
         JTextField textField = new JTextField();
-        //textField.setPreferredSize(new Dimension(250,40));
         textField.setBounds(500, 400, 200, 50);
         textField.setFont(new Font("Arial", Font.PLAIN, 20));
         buttonFile.addActionListener(e -> {

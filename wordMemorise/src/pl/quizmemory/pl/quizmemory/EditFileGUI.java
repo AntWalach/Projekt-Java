@@ -11,7 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class EditFileGUI extends CreateFile {
-
     public static MenuGUI.Panel editFileContentPanel;
     public static String fileName;
     public static JTextArea changeFileTextArea;
@@ -19,7 +18,6 @@ public class EditFileGUI extends CreateFile {
     EditFileGUI() {
         filenameGUI();
     }
-
 
     public void editContentFileGUI() {
         JLabel title = new JLabel();

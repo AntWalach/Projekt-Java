@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class CheckInputFileGUI extends CreateFile {
-
     private MenuGUI.Panel checkInputFilePanel;
 
     CheckInputFileGUI() {
@@ -15,15 +14,10 @@ public class CheckInputFileGUI extends CreateFile {
     }
 
     public void checkInputFileGUI() {
-
         JLabel title = new JLabel();
         title.setText("Check input file");
-        //title.setHorizontalTextPosition(JLabel.CENTER);
-        //title.setVerticalTextPosition(JLabel.TOP);
         title.setForeground(new Color(255, 255, 255));
         title.setFont(new Font("Arial", Font.PLAIN, 40));
-        //title.setVerticalAlignment(JLabel.CENTER);
-        //title.setHorizontalAlignment(JLabel.CENTER);
         title.setBounds(500, 50, 300, 100);
 
         JTextArea textArea = new JTextArea();
@@ -55,7 +49,6 @@ public class CheckInputFileGUI extends CreateFile {
     }
 
     public void addWordsToTextField(JTextArea textArea) {
-
         textArea.setText("");
 
         for (int i = 0; i < WordList.plWords.size(); i++) {

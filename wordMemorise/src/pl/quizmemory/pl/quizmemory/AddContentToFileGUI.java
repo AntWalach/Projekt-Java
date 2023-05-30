@@ -5,24 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Objects;
 
 public class AddContentToFileGUI extends CreateFile {
-
     private MenuGUI.Panel addContentToFilePanel;
     private String fileName;
-
 
     AddContentToFileGUI() {
         filenameGUI();
     }
-
 
     public void addContentToFileGUI() {
         JLabel title = new JLabel();
@@ -92,7 +84,7 @@ public class AddContentToFileGUI extends CreateFile {
     }
 
 
-    public void action(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public void action(ActionEvent e, JTextField textField, JButton buttonFile) {
         if (e.getSource() == buttonFile) {
             fileName = textField.getText();
             filenamePanel.setVisible(false);
