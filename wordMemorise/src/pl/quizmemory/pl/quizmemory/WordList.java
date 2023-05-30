@@ -15,6 +15,7 @@ public class WordList {
         plWords.clear();
         enWords.clear();
 
+
         BufferedReader read = new BufferedReader(new FileReader(fileName));
 
         StringBuilder word1 = new StringBuilder();
