@@ -16,53 +16,6 @@ public class LoginGUI extends MenuGUI implements ActionListener {
     protected static JButton registerButton;
     protected static JLabel success;
 
-    public static JTextField getUserText() {
-        return userText;
-    }
-
-    public static void setUserText(JTextField userText) {
-        LoginGUI.userText = userText;
-    }
-
-    public static JLabel getPasswordLabel() {
-        return passwordLabel;
-    }
-
-    public static void setPasswordLabel(JLabel passwordLabel) {
-        LoginGUI.passwordLabel = passwordLabel;
-    }
-
-    public static JPasswordField getUserPassword() {
-        return userPassword;
-    }
-
-    public static void setUserPassword(JPasswordField userPassword) {
-        LoginGUI.userPassword = userPassword;
-    }
-
-    public static JButton getLoginButton() {
-        return loginButton;
-    }
-
-    public static JLabel getSuccess() {
-        return success;
-    }
-
-    public static void setSuccess(JLabel success) {
-        LoginGUI.success = success;
-    }
-
-    public static void setLoginButton(JButton loginButton) {
-        LoginGUI.loginButton = loginButton;
-    }
-
-    public static JButton getRegisterButton() {
-        return registerButton;
-    }
-
-    public static void setRegisterButton(JButton registerButton) {
-        LoginGUI.registerButton = registerButton;
-    }
 
     public void ILogin() {
 

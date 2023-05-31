@@ -17,6 +17,7 @@ public class UserManagement extends LoginGUI {
 
     public void registerUser(String username, String password, boolean isAdmin) {
         User user;
+        
         if (isAdmin) {
             user = new AdminUser(username, password);
         } else {
