@@ -10,11 +10,6 @@ import static pl.quizmemory.LoginGUI.mainFrame;
 
 public class MenuGUI {
     protected static Panel menuPanel;
-    protected static JButton buttonCreateDeleteFile;
-    protected static JButton buttonCheckInputFile;
-    protected static JButton buttonAddContentToFile;
-    protected static JButton buttonEditFile;
-    protected static JButton buttonGames;
 
     public void menuGUI() {
         JLabel title = new JLabel();
@@ -23,11 +18,11 @@ public class MenuGUI {
         title.setFont(new Font("Arial", Font.PLAIN, 40));
         title.setBounds(500, 50, 400, 100);
 
-        buttonCreateDeleteFile = setButton(300, 250, 200, 100);
-        buttonCheckInputFile = setButton(700, 250, 200, 100);
-        buttonAddContentToFile = setButton(300, 400, 200, 100);
-        buttonEditFile = setButton(700, 400, 200, 100);
-        buttonGames = setButton(300, 550, 600, 150);
+        JButton buttonCreateDeleteFile = setButton(300, 250, 200, 100);
+        JButton buttonCheckInputFile = setButton(700, 250, 200, 100);
+        JButton buttonAddContentToFile = setButton(300, 400, 200, 100);
+        JButton buttonEditFile = setButton(700, 400, 200, 100);
+        JButton buttonGames = setButton(300, 550, 600, 150);
 
         buttonCreateDeleteFile.setText("Create/delete file");
         buttonCheckInputFile.setText("Check input file");
@@ -76,7 +71,6 @@ public class MenuGUI {
 
         return newButton;
     }
-
 
     public static class Panel extends JPanel {
         Panel() {

@@ -26,10 +26,10 @@ public class TranslationGUI extends CreateFile {
     private String word;
 
     TranslationGUI() {
-        filenameGUI_COPY();
+        filenameGUItranslation();
     }
 
-    public void filenameGUI_COPY() {
+    public void filenameGUItranslation() {
         JLabel title = new JLabel();
         title.setText("Translation Game");
         title.setForeground(new Color(255, 255, 255));
@@ -55,7 +55,7 @@ public class TranslationGUI extends CreateFile {
         textField.setFont(new Font("Arial", Font.PLAIN, 20));
         buttonFile.addActionListener(e -> {
             try {
-                saveFile_COPY(e, textField, buttonFile);
+                savefileTranslation(e, textField, buttonFile);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -93,7 +93,7 @@ public class TranslationGUI extends CreateFile {
         LoginGUI.mainFrame.add(filenamePanel);
     }
 
-    public void saveFile_COPY(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
+    public void savefileTranslation(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
             WordList.addWordsToList(this.checkFileName(fileName));
@@ -101,7 +101,7 @@ public class TranslationGUI extends CreateFile {
         }
     }
 
-    public void languageChoice() throws IOException {
+    public void languageChoice() {
         String fixedString = "";
         for (int i = 0; i < WordList.plWords.size(); i++) {
             fixedString = WordList.plWords.get(i);
@@ -165,14 +165,12 @@ public class TranslationGUI extends CreateFile {
         title.setFont(new Font("Arial", Font.PLAIN, 40));
         title.setBounds(470, 50, 500, 100);
 
-
         wordToTranslate = new JLabel();
         wordToTranslate.setText(LearnWords.get(0));
         wordToTranslate.setHorizontalTextPosition(JLabel.CENTER);
         wordToTranslate.setForeground(new Color(255, 255, 255));
         wordToTranslate.setFont(new Font("Arial", Font.PLAIN, 35));
         wordToTranslate.setBounds(520, 300, 200, 50);
-
 
         answerField = new JTextField();
         answerField.setBounds(520, 390, 150, 50);
@@ -199,7 +197,6 @@ public class TranslationGUI extends CreateFile {
         buttonExit.setText("Return");
         buttonExit.addActionListener(e -> returnMenu(traslationGamePanel));
 
-
         traslationGamePanel = new MenuGUI.Panel();
         traslationGamePanel.setLayout(null);
         traslationGamePanel.add(title);
@@ -211,7 +208,6 @@ public class TranslationGUI extends CreateFile {
 
         filenamePanel.setVisible(false);
         LoginGUI.mainFrame.add(traslationGamePanel);
-
     }
 
     public void endScreen() {

@@ -16,9 +16,7 @@ public class LoginGUI extends MenuGUI implements ActionListener {
     protected static JButton registerButton;
     protected static JLabel success;
 
-
     public void ILogin() {
-
         panelLogin = new MenuGUI.Panel();
         mainFrame = new MenuGUI.Frame();
 

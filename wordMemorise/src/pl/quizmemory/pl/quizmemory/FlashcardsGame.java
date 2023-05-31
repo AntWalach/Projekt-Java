@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlashcardsGame {
-    static int currentIndex = 0;
-    static boolean changeLanguage = true;
+    private int currentIndex = 0;
+    private boolean changeLanguage = true;
 
-    protected List<String> words_1 = new ArrayList<>();
-    protected List<String> words_2 = new ArrayList<>();
+    protected List<String> words_1;
+    protected List<String> words_2;
 
     FlashcardsGame() {
         words_1 = WordList.plWords;

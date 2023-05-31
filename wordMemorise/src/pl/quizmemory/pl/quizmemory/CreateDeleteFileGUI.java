@@ -6,9 +6,9 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class CreateDeleteFileGUI extends CreateFile {
-    public static MenuGUI.Panel choicePanel;
-    public static MenuGUI.Panel createPanel;
-    public static MenuGUI.Panel deletePanel;
+    private MenuGUI.Panel choicePanel;
+    private MenuGUI.Panel createPanel;
+    private MenuGUI.Panel deletePanel;
 
     CreateDeleteFileGUI() {
         choicePanelGUI();
