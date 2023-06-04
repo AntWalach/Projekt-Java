@@ -136,6 +136,7 @@ public class TranslationGUI extends CreateFile {
 
             Score.setText("Your Score: " + deletedWords + "/" + maxScore);
             answerResult.setText("Correct");
+            correctResult.setText("");
             answerResult.setForeground(new Color(47, 250, 2));
         } else {
             answerResult.setText("Wrong");
