@@ -1,0 +1,1 @@
+SaveLogs{, logTime=2023-06-01T21:39:49.029646200, userName='antek', logStatus='Success'}

@@ -17,6 +17,7 @@ public class TranslationGUI extends CreateFile {
     private JLabel wordToTranslate;
     private JLabel Score;
     private JLabel answerResult;
+    private JLabel correctResult;
     private JTextField answerField;
     private java.util.List<String> LearnWords;
     private java.util.List<String> AnswerWords;
@@ -139,6 +140,8 @@ public class TranslationGUI extends CreateFile {
         } else {
             answerResult.setText("Wrong");
             answerResult.setForeground(new Color(250, 9, 9));
+            correctResult.setText(AnswerWords.get(answersPointer));
+            correctResult.setForeground(Color.blue);
             answersPointer++;
         }
 
@@ -170,7 +173,7 @@ public class TranslationGUI extends CreateFile {
         wordToTranslate.setHorizontalTextPosition(JLabel.CENTER);
         wordToTranslate.setForeground(new Color(255, 255, 255));
         wordToTranslate.setFont(new Font("Arial", Font.PLAIN, 35));
-        wordToTranslate.setBounds(520, 300, 200, 50);
+        wordToTranslate.setBounds(520, 300, 350, 50);//w:200
 
         answerField = new JTextField();
         answerField.setBounds(520, 390, 150, 50);
@@ -193,6 +196,12 @@ public class TranslationGUI extends CreateFile {
         answerResult.setFont(new Font("Arial", Font.PLAIN, 30));
         answerResult.setBounds(700, 360, 200, 100);
 
+        correctResult = new JLabel();
+        correctResult.setText("");
+        correctResult.setFont(new Font("Arial", Font.PLAIN, 30));
+        correctResult.setBounds(700,400,300,100);
+
+
         JButton buttonExit = MenuGUI.setButton(50, 50, 100, 50);
         buttonExit.setText("Return");
         buttonExit.addActionListener(e -> returnMenu(traslationGamePanel));
@@ -202,6 +211,7 @@ public class TranslationGUI extends CreateFile {
         traslationGamePanel.add(title);
         traslationGamePanel.add(wordToTranslate);
         traslationGamePanel.add(answerField);
+        traslationGamePanel.add(correctResult);
         traslationGamePanel.add(Score);
         traslationGamePanel.add(answerResult);
         traslationGamePanel.add(buttonExit);
