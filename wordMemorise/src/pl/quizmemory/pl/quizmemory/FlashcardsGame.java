@@ -33,7 +33,9 @@ public class FlashcardsGame {
             else
                 currentIndex++;
 
-            FlashcardsGUI.buttonCard.setText(words_1.get(currentIndex));
+            changeLanguage = true;
+
+            flipCard();
         }
     }
 
@@ -43,8 +45,10 @@ public class FlashcardsGame {
                 currentIndex = words_1.size() - 1;
             else
                 currentIndex--;
+            
+            changeLanguage = true;
 
-            FlashcardsGUI.buttonCard.setText(words_1.get(currentIndex));
+            flipCard();
         }
     }
 
