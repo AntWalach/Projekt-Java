@@ -3,13 +3,22 @@ package pl.quizmemory;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Graficzna implementacja menu wyboru gier
+ */
 public class GameChoiceGUI extends FilenameTemplate {
     protected static MenuGUI.Panel choiceMenu;
 
+    /**
+     * Konstrukor wywołujący funkcje gamesMenu
+     */
     GameChoiceGUI() {
         gamesMenu();
     }
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void gamesMenu() {
         JLabel title = new JLabel();
         title.setText("Games");

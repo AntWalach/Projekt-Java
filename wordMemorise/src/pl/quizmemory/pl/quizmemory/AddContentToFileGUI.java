@@ -8,14 +8,23 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Graficzna implementacja dodwania zawartości do pliku .txt
+ */
 public class AddContentToFileGUI extends CreateFile {
     private MenuGUI.Panel addContentToFilePanel;
     private String fileName;
 
+    /**
+     * Kontruktor wywołujący odziedziczoną funkcje, która wyświetla okno wyboru pliku .txt
+     */
     AddContentToFileGUI() {
         filenameGUI();
     }
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void addContentToFileGUI() {
         JLabel title = new JLabel();
         title.setText("Add words");
@@ -79,7 +88,12 @@ public class AddContentToFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(addContentToFilePanel);
     }
 
-
+    /**
+     * Funkcja wywołująca akcje pobrania nazwy pliku po jej wpisaniu i naciśnięciu przycisku
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param buttonFile - przycisk
+     */
     public void action(ActionEvent e, JTextField textField, JButton buttonFile) {
         if (e.getSource() == buttonFile) {
             fileName = textField.getText();
@@ -88,6 +102,14 @@ public class AddContentToFileGUI extends CreateFile {
         }
     }
 
+    /**
+     *Funkcja dodająca słowo i jego tłumaczenie do pliku po naciśnieciu przycisku
+     * @param e - action event
+     * @param textField1 - pierwsze pole tekstowe
+     * @param textField2 - drugie pole tekstowe
+     * @param button - przycisck
+     * @throws IOException - wyjątek
+     */
     public void addContentToFile(ActionEvent e, JTextField textField1, JTextField textField2, JButton button) throws IOException {
         if (e.getSource() == button) {
             if (!Objects.equals(textField1.getText(), "") && !Objects.equals(textField2.getText(), "")) {
@@ -103,6 +125,13 @@ public class AddContentToFileGUI extends CreateFile {
         }
     }
 
+    /**
+     * Funkcja dodająca słowo i jego tłumaczenie do pliku po naciśnieciu klawisza enter
+     * @param e - key event
+     * @param textField1 - pierwsze pole tekstowe
+     * @param textField2 - drugie pole tekstowe
+     * @throws IOException - wyjątek
+     */
     public void addContentToFileKey(KeyEvent e, JTextField textField1, JTextField textField2) throws IOException {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             if (!Objects.equals(textField1.getText(), "") && !Objects.equals(textField2.getText(), "")) {

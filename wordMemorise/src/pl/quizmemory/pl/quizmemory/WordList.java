@@ -6,10 +6,18 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa zajmująca się listami słów oraz tłumaczeń
+ */
 public class WordList {
     protected static List<String> plWords = new ArrayList<String>();
     protected static List<String> enWords = new ArrayList<String>();
 
+    /**
+     * Pobieranie słowów i ich tłumaczeń z pliku .txt oraz przekazywanie ich do tablic
+     * @param fileName - nazwa pliku
+     * @throws IOException - wyjątek
+     */
     public static void addWordsToList(String fileName) throws IOException {
 
         plWords.clear();

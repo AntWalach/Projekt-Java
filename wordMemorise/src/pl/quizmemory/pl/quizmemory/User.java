@@ -2,6 +2,9 @@ package pl.quizmemory;
 
 import java.io.Serializable;
 
+/**
+ * Klasa użytkownika
+ */
 public class User implements Serializable {
     private String login;
     private String password;
@@ -12,6 +15,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    //getters and setters
     public String getLogin() {
         return login;
     }

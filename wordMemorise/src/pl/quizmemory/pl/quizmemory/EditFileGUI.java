@@ -10,15 +10,24 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Graficzna implementacja dodwania zawartości do pliku .txt
+ */
 public class EditFileGUI extends CreateFile {
     private MenuGUI.Panel editFileContentPanel;
     private String fileName;
     private JTextArea changeFileTextArea;
 
+    /**
+     * Kontruktor wywołujący odziedziczoną funkcje, która wyświetla okno wyboru pliku .txt
+     */
     EditFileGUI() {
         filenameGUI();
     }
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void editContentFileGUI() {
         JLabel title = new JLabel();
         title.setText("Edit input file");
@@ -63,6 +72,12 @@ public class EditFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(editFileContentPanel);
     }
 
+    /**
+     * Funkcja wywołująca akcje pobrania nazwy pliku po jej wpisaniu i naciśnięciu przycisku
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param buttonFile - przycisk
+     */
     public void action(ActionEvent e, JTextField textField, JButton buttonFile) {
         if (e.getSource() == buttonFile) {
             fileName = textField.getText();
@@ -71,6 +86,10 @@ public class EditFileGUI extends CreateFile {
         }
     }
 
+    /**
+     * Funkcja zczytująca zawartość pliku .txt
+     * @return zwraca string zaweirający całą zawartośc pliku .txt
+     */
     public String readFileContent() {
         try {
             File file = new File(this.checkFileName(fileName));
@@ -82,6 +101,13 @@ public class EditFileGUI extends CreateFile {
         return "";
     }
 
+    /**
+     * Funkcja zapisująca zmiany w pliku .txt
+     * @param e - action
+     * @param textArea - pole tekstowe
+     * @param button - przycisk
+     * @throws IOException - wyjątek
+     */
     public void changeText(ActionEvent e, JTextArea textArea, JButton button) throws IOException {
         if (e.getSource() == button) {
             File file = new File(this.checkFileName(fileName));

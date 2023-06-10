@@ -6,7 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Random;
 
+/**
+ * Graficzna implementacja gry tłumaczeniowej
+ */
 public class TranslationGUI extends CreateFile {
 
     private MenuGUI.Panel filenamePanel;
@@ -26,10 +32,16 @@ public class TranslationGUI extends CreateFile {
     private int maxScore = 0;
     private String word;
 
+    /**
+     * konstruktor wywołujący funkcje filenameGUItranslation
+     */
     TranslationGUI() {
         filenameGUItranslation();
     }
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void filenameGUItranslation() {
         JLabel title = new JLabel();
         title.setText("Translation Game");
@@ -94,6 +106,13 @@ public class TranslationGUI extends CreateFile {
         LoginGUI.mainFrame.add(filenamePanel);
     }
 
+    /**
+     * Funkcja pobierająca słowa i ich tłumaczenia z pliku .txt
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param buttonFile - przycisk
+     * @throws IOException - wyjątek
+     */
     public void savefileTranslation(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
@@ -102,6 +121,9 @@ public class TranslationGUI extends CreateFile {
         }
     }
 
+    /**
+     * Wybór języka
+     */
     public void languageChoice() {
         String fixedString = "";
         for (int i = 0; i < WordList.plWords.size(); i++) {
@@ -115,12 +137,31 @@ public class TranslationGUI extends CreateFile {
         if (PLtoEN.isSelected()) {
             LearnWords.addAll(WordList.plWords);
             AnswerWords.addAll(WordList.enWords);
+
+            ArrayList<String> tempLearn = new ArrayList<>(LearnWords);
+            ArrayList<String> tempAnswer = new ArrayList<>(AnswerWords);
+
+            long seed = System.nanoTime();
+            Collections.shuffle(tempLearn, new Random(seed));
+            Collections.shuffle(tempAnswer, new Random(seed));
+
+            LearnWords.clear();
+            AnswerWords.clear();
+
+            LearnWords.addAll(tempLearn);
+            AnswerWords.addAll(tempAnswer);
         } else {
             LearnWords.addAll(WordList.enWords);
             AnswerWords.addAll(WordList.plWords);
         }
     }
 
+    /**
+     * Funkcja porównująca słowo i jego tłumaczenie
+     * @param word1 - słowo
+     * @param word2 - tłumaczenie słowa
+     * @return true or false
+     */
     public boolean compareTwoWords(String word1, String word2) {
         if (word1.equals(word2))
             return true;
@@ -128,6 +169,9 @@ public class TranslationGUI extends CreateFile {
             return false;
     }
 
+    /**
+     * Funckcja porównująca słowo wraz z propozycją tłumaczenia podaną przez użytkownika
+     */
     public void translationEngine() {
         if (compareTwoWords(word, AnswerWords.get(answersPointer))) {
             LearnWords.remove(answersPointer);
@@ -156,7 +200,10 @@ public class TranslationGUI extends CreateFile {
             endScreen();
     }
 
-
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     * @throws IOException - wyjątek
+     */
     public void translationGame() throws IOException {
         answersPointer = 0;
         deletedWords = 0;
@@ -174,7 +221,7 @@ public class TranslationGUI extends CreateFile {
         wordToTranslate.setHorizontalTextPosition(JLabel.CENTER);
         wordToTranslate.setForeground(new Color(255, 255, 255));
         wordToTranslate.setFont(new Font("Arial", Font.PLAIN, 35));
-        wordToTranslate.setBounds(520, 300, 350, 50);//w:200
+        wordToTranslate.setBounds(500, 300, 800, 50);//w:200
 
         answerField = new JTextField();
         answerField.setBounds(520, 390, 150, 50);
@@ -221,6 +268,9 @@ public class TranslationGUI extends CreateFile {
         LoginGUI.mainFrame.add(traslationGamePanel);
     }
 
+    /**
+     * Graficzna reprezentacja ekranu końcowego(po zakończeniu gry tłumaczeniowej)
+     */
     public void endScreen() {
         JLabel title = new JLabel();
         title.setText("Session ended");

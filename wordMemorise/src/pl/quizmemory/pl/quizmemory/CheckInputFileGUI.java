@@ -5,13 +5,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
+/**
+ * Graficzna implementacja sprawdzania zawartości pliku
+ */
 public class CheckInputFileGUI extends CreateFile {
     private MenuGUI.Panel checkInputFilePanel;
 
+    /**
+     * Kontruktor wywołujący odziedziczoną funkcje, która wyświetla okno wyboru pliku .txt
+     */
     CheckInputFileGUI() {
         filenameGUI();
     }
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void checkInputFileGUI() {
         JLabel title = new JLabel();
         title.setText("Check input file");
@@ -47,6 +56,10 @@ public class CheckInputFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(checkInputFilePanel);
     }
 
+    /**
+     * Funkcja wyświetlająca zawartość pliku .txt
+     * @param textArea - pole tekstowe
+     */
     public void addWordsToTextField(JTextArea textArea) {
         textArea.setText("");
 
@@ -55,6 +68,13 @@ public class CheckInputFileGUI extends CreateFile {
         }
     }
 
+    /**
+     * Nadpisanie funkcji wywołującej akcje po wpisaniu nazwy pliku i naciśnięciu przycisku
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param button - przycisk
+     * @throws IOException - wyjątek
+     */
     @Override
     public void action(ActionEvent e, JTextField textField, JButton button) throws IOException {
         if (e.getSource() == button) {

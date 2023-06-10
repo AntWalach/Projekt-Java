@@ -5,14 +5,26 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
+/**
+ * Graficzna implementacja dodwania zawartości do pliku .txt
+ */
 public class FlashcardsGUI extends CreateFile {
     private MenuGUI.Panel flashcardPanel;
     protected static JButton buttonCard;
 
+    /**
+     * Kontruktor wywołujący odziedziczoną funkcje, która wyświetla okno wyboru pliku .txt
+     */
     FlashcardsGUI() {
         filenameGUI();
     }
 
+    /**
+     * Funkcja wywołująca akcje pobrania nazwy pliku po jej wpisaniu i naciśnięciu przycisku
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param buttonFile - przycisk
+     */
     public void action(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
@@ -21,6 +33,9 @@ public class FlashcardsGUI extends CreateFile {
         }
     }
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void flashcardsGUI() {
 
         JLabel title = new JLabel();
