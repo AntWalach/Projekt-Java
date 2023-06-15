@@ -4,8 +4,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Tworzenie nowych plików .txt
+ */
 public class CreateFile extends FilenameTemplate{
-
+    /**
+     * Funckja tworząca nowy plik na podstawie przekazanej nazwy
+     * @param name - nazwa pliku .txt
+     */
     public void createFile(String name) {
         try {
             File file = new File(checkFileName(name));
@@ -21,6 +27,10 @@ public class CreateFile extends FilenameTemplate{
         }
     }
 
+    /**
+     * Funkcja usuwająca istniejący plik na podstawie przekazanej nazwy
+     * @param fileName - nazwa pliku .txt
+     */
     public void deleteFile(String fileName) {
         try {
             //String fileName = nameFile();
@@ -32,6 +42,12 @@ public class CreateFile extends FilenameTemplate{
         }
     }
 
+    /**
+     * Funkcja sprawdzająca czy nazwa pliku tekstowego ma rozszerzenie .txt
+     * @param name - nazwa pliku
+     * @return zwraca nazawę pliku z rozszerzeniem .txt
+     * @throws IOException - wyjątek
+     */
     public String checkFileName(String name) throws IOException {
         if (!name.contains(".txt")) {
             name += ".txt";
@@ -40,9 +56,16 @@ public class CreateFile extends FilenameTemplate{
         return name;
     }
 
-    public void addContentToFile(String fileName, String plWord, String enWord) throws IOException {
+    /**
+     * Funkcja dodająca słowo wraz z tłumaczeniem do określonego pliku .txt
+     * @param fileName - nazwa pliku
+     * @param nativeWord - słowo w języku ojczystym
+     * @param foreginWord - tłumaczenie słowa
+     * @throws IOException - wyjątek
+     */
+    public void addContentToFile(String fileName, String nativeWord, String foreginWord) throws IOException {
         FileWriter write = new FileWriter(checkFileName(fileName), true);
-        write.append("\n").append(plWord).append(",").append(enWord).append(",");
+        write.append("\n").append(nativeWord).append(",").append(foreginWord).append(",");
 
         write.close();
     }

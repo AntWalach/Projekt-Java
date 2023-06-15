@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Graficzna implementacja ekranu logowania
+ */
 public class LoginGUI extends MenuGUI implements ActionListener {
 
     protected static MenuGUI.Frame mainFrame;
@@ -16,6 +19,9 @@ public class LoginGUI extends MenuGUI implements ActionListener {
     protected static JButton registerButton;
     protected static JLabel success;
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void ILogin() {
         panelLogin = new MenuGUI.Panel();
         mainFrame = new MenuGUI.Frame();
@@ -66,6 +72,10 @@ public class LoginGUI extends MenuGUI implements ActionListener {
         LoginGUI.mainFrame.add(panelLogin);
     }
 
+    /**
+     * Funkcja wykonująca operacja logowania/rejestracji
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         UserManagement userManagement = new UserManagement();

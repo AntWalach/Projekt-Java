@@ -8,9 +8,15 @@ import java.io.IOException;
 
 import static pl.quizmemory.LoginGUI.mainFrame;
 
+/**
+ * Graficzna implementacja menu głównego
+ */
 public class MenuGUI {
     protected static Panel menuPanel;
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void menuGUI() {
         JLabel title = new JLabel();
         title.setText("Word Game");
@@ -64,6 +70,14 @@ public class MenuGUI {
         LoginGUI.panelLogin.setVisible(false);
     }
 
+    /**
+     * Funkcja ustawiająca podstawowe włściwości przycisków
+     * @param x - współrzędna x przycisku
+     * @param y - współrzędna y przycisku
+     * @param width - szerokość przycisku
+     * @param height - wysokość przycisku
+     * @return przycisk
+     */
     public static JButton setButton(int x, int y, int width, int height) {
         JButton newButton = new JButton();
         newButton.setBounds(x, y, width, height);
@@ -72,6 +86,9 @@ public class MenuGUI {
         return newButton;
     }
 
+    /**
+     * Klasa wewnętrzna reprezentująca panel GUI
+     */
     public static class Panel extends JPanel {
         Panel() {
             //background color
@@ -80,6 +97,9 @@ public class MenuGUI {
         }
     }
 
+    /**
+     * Klasa wewnętrzna reprezetnujące okno główne GUI
+     */
     public static class Frame extends JFrame {
         Frame() {
             try {

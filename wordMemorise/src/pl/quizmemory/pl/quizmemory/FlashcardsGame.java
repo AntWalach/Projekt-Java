@@ -3,6 +3,9 @@ package pl.quizmemory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Gra w fiszki
+ */
 public class FlashcardsGame {
     private int currentIndex = 0;
     private boolean changeLanguage = true;
@@ -10,11 +13,17 @@ public class FlashcardsGame {
     protected List<String> words_1;
     protected List<String> words_2;
 
+    /**
+     * konstruktor pobierający listy słów oraz ich tłumaczeń
+     */
     FlashcardsGame() {
         words_1 = WordList.plWords;
         words_2 = WordList.enWords;
     }
 
+    /**
+     * Funkcja odwracająca fiszke po jej naciśnięciu
+     */
     public void flipCard() {
         if(words_1.size() != 0) {
             if (changeLanguage)
@@ -26,6 +35,9 @@ public class FlashcardsGame {
         }
     }
 
+    /**
+     * Funckja przechodząca do następnej fiszki
+     */
     public void nextCard() {
         if(words_1.size() != 0) {
             if (currentIndex == words_1.size() - 1)
@@ -39,6 +51,9 @@ public class FlashcardsGame {
         }
     }
 
+    /**
+     * Funkcja przechodząca do poprzedniej fiszki
+     */
     public void previousCard() {
         if(words_1.size() != 0) {
             if (currentIndex == 0)
@@ -52,6 +67,9 @@ public class FlashcardsGame {
         }
     }
 
+    /**
+     * Funkcja odpowiadająca za gromadzenie nauczonych fiszek
+     */
     public void learned() {
         if(words_1.size() == 1){
             FlashcardsGUI.buttonCard.setText("End of the game!");

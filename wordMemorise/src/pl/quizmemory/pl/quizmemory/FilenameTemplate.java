@@ -5,9 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
+/**
+ * Graficzna implementacja wybierania pliku .txt
+ */
 public class FilenameTemplate  {
     protected MenuGUI.Panel filenamePanel;
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void filenameGUI() {
         JLabel title = new JLabel();
         title.setText("Choose file");
@@ -52,8 +58,19 @@ public class FilenameTemplate  {
         LoginGUI.mainFrame.add(filenamePanel);
     }
 
+    /**
+     * Wzorzec funkcji odpowiadającej za przekazanie informacji wpisanych do pola tekstowego po naciśnięciu przycisku
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param button - przcisk
+     * @throws IOException - wyjątek
+     */
     public void action(ActionEvent e, JTextField textField, JButton button) throws IOException{ }
 
+    /**
+     * Powrót do menu głównego
+     * @param panel - panel
+     */
     public void returnMenu(JPanel panel){
         panel.setVisible(false);
         MenuGUI.menuPanel.setVisible(true);

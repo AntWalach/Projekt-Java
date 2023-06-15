@@ -5,15 +5,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
+/**
+ * Graficzna implementacja tworzenia/usuwania plików .txt
+ */
 public class CreateDeleteFileGUI extends CreateFile {
     private MenuGUI.Panel choicePanel;
     private MenuGUI.Panel createPanel;
     private MenuGUI.Panel deletePanel;
 
+    /**
+     * Konstruktor wywołujący funkcje choicePanelGUI
+     */
     CreateDeleteFileGUI() {
         choicePanelGUI();
     }
 
+    /**
+     * Dodanie graficznych elementów do wyświetlanego panelu
+     */
     public void choicePanelGUI() {
         JLabel title = new JLabel();
         title.setText("Choose option");
@@ -44,6 +53,9 @@ public class CreateDeleteFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(choicePanel);
     }
 
+    /**
+     * Tworzenie nowego pliku .txt
+     */
     public void createFileGUI() {
         JLabel title = new JLabel();
         title.setText("Create file");
@@ -88,6 +100,9 @@ public class CreateDeleteFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(createPanel);
     }
 
+    /**
+     * usuwanie istniejącego pliku .txt
+     */
     public void deleteFileGUI() {
         JLabel title = new JLabel();
         title.setText("Delete file");
@@ -132,6 +147,13 @@ public class CreateDeleteFileGUI extends CreateFile {
         LoginGUI.mainFrame.add(deletePanel);
     }
 
+    /**
+     * Funkcja wywołująca akcje utworzenia pliku po wpisaniu nazwy pliku i naciśnięciu przycisku
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param buttonFile - przycisk
+     * @throws IOException - wyjątek
+     */
     public void createFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
@@ -141,6 +163,13 @@ public class CreateDeleteFileGUI extends CreateFile {
         }
     }
 
+    /**
+     * Funkcja wywołująca akcje usunięcia pliku po wpisaniu nazwy pliku i naciśnięciu przycisku
+     * @param e - action event
+     * @param textField - pole tekstowe
+     * @param buttonFile - przycisk
+     * @throws IOException - wyjątek
+     */
     public void deleteFile(ActionEvent e, JTextField textField, JButton buttonFile) throws IOException {
         if (e.getSource() == buttonFile) {
             String fileName = textField.getText();
