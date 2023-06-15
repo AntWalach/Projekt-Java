@@ -174,7 +174,7 @@ public class TranslationGUI extends CreateFile {
         wordToTranslate.setHorizontalTextPosition(JLabel.CENTER);
         wordToTranslate.setForeground(new Color(255, 255, 255));
         wordToTranslate.setFont(new Font("Arial", Font.PLAIN, 35));
-        wordToTranslate.setBounds(520, 300, 350, 50);//w:200
+        wordToTranslate.setBounds(520, 300, 800, 50);//w:200
 
         answerField = new JTextField();
         answerField.setBounds(520, 390, 150, 50);
